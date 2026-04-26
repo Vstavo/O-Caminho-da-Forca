@@ -10,7 +10,7 @@ function autenticarUsuario(email, senha) {
 
 function cadastrarUsuario(email, senha, nome) {
     const instrucaoSql = `
-        INSERT INTO usuarios VALUES (default, '${email}', '${senha}', '${nome}')
+        INSERT INTO usuarios(email, senha, nome) VALUES ('${email}', '${senha}', '${nome}')
     `;
 
     return database.executar(instrucaoSql)

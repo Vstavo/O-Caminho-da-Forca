@@ -11,6 +11,31 @@ body {
     overflow: hidden;
 }
 
+.medievalsharp-regular {
+  font-family: "MedievalSharp", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cinzel-decorative-regular {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cinzel-decorative-bold {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.cinzel-decorative-black {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+
 #app {
     display: flex;
     width: 100%;
@@ -52,6 +77,7 @@ body {
     width: 100%;
     transition: background-color 0.3s ease;
     color: #FCFCFC;
+    font-weight: bold;
 }
 
 .div-perfil {
@@ -66,11 +92,32 @@ body {
     background-size: 100% 100%;
 }
 
-.div-perfil .foto-perfil {
-    border: 2px solid #ccc;
+.foto-frame {
+    position: relative;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.45) 1.95px 1.95px 2.6px;
+}
+
+.foto-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: url('../assets/borders/Bronze-Moldure.png') center/cover no-repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.div-perfil .foto-perfil {
+    border-radius: 50%;
+    width: 70%;
+    height: 70%;
     object-fit: cover;
 }
 
@@ -148,22 +195,14 @@ body {
     font-size: 48px;
 }
 
-.cabecalhos h1::before {
+.cabecalhos h1::after {
     position: absolute;
     content: "Nível de força:";
-    z-index: -1;
+    inset: 0;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.cabecalhos h1::after {
-    position: absolute;
-    content: "Nível de força:";
-    top: 0;
-    left: 0;
-    width: 100%;
     background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
     -webkit-background-clip: text;
     background-clip: text;
@@ -199,7 +238,7 @@ body {
     z-index: 1;
 }
 
-.corpo{
+.corpo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,7 +246,7 @@ body {
     height: 100%;
 }
 
-.progress-bar{
+.progress-bar {
     display: flex;
     position: relative;
     width: 699px;
@@ -217,7 +256,21 @@ body {
     aspect-ratio: 699 / 167;
 }
 
-.progress-bar::after{
+.progress-bar::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -24%;
+    z-index: 0;
+    width: 25%;
+    height: 100%;
+    background-image: url('../assets/pages/forca/Forca-Block.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.progress-bar::after {
     position: absolute;
     content: "";
     top: 0;
