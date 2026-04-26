@@ -1,3 +1,5 @@
+import { criarBarraProgesso } from "../utils/graphicModels.js";
+
 export function paginaForca(main) {
     console.log('Página carregada');
     main.innerHTML = '';
@@ -12,9 +14,11 @@ export function paginaForca(main) {
             </div>
             <div class="corpo">
                 <div class="progress-bar">
-                    <canvas id="progress-bar-canvas" class="progress-bar-canvas" width="660" height="140"></canvas>
+                    <canvas id="progress-bar-canvas" class="progress-bar-canvas"></canvas>
                 </div>
             </div>
         </div>
     `;
+
+    criarBarraProgesso(50, main)
 }

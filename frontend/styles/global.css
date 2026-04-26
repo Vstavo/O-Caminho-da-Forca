@@ -21,12 +21,15 @@ body {
 #sidebar {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 15vw;
     height: 100vh;
-    padding: 0 10px;
-    border-right: 3px solid #837568;
+    padding: 20px 10px;
     border-radius: 0 24px 24px 0;
     background-color: #3C3834;
+    background-image: url('../assets/pages/forca/Couro-Texture.png');
+    background-size: 100% 100%;
+    background-position: center;
     color: #FCFCFC;
 }
 
@@ -42,6 +45,8 @@ body {
     font-size: 16px;
     cursor: pointer;
     background: transparent;
+    background-image: url('../assets/pages/forca/button-moldure.png');
+    background-size: 100% 100%;
     border: none;
     border-radius: 3px;
     width: 100%;
@@ -55,9 +60,10 @@ body {
     align-items: center;
     gap: 20px;
     padding: 20px;
-    width: 100%;
-    border-bottom: 2px solid #ccc;
+    width: 90%;
     margin-bottom: 20px;
+    background-image: url('../assets/pages/forca/Pedra-moldura.png');
+    background-size: 100% 100%;
 }
 
 .div-perfil img {
@@ -86,9 +92,9 @@ body {
 }
 
 .div-button button.active {
-    background-color: #1C1C1C;
+    background-image: url('../assets/pages/forca/button-active.png');
+    background-size: 100% 100%;
     color: #AD9D8A;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 #content {
@@ -201,7 +207,8 @@ body {
     width: 699px;
     height: 167px;
     align-items: center;
-    padding: 40px 20px 40px 20px;
+    padding: 20px;
+    aspect-ratio: 699 / 167;
 }
 
 .progress-bar::after{
@@ -214,10 +221,12 @@ body {
     height: 100%;
     background-image: url('../assets/pages/forca/Progress-Bar_Moldure.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
     background-position: center;
 }
 
-.progress-bar-canvas{
-    
+.progress-bar-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
