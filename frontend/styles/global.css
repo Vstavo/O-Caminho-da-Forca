@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: #0D0D0D;
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 100vh;
+    padding: 0 10px;
+    border-right: 3px solid #837568;
+    border-radius: 0 24px 24px 0;
+    background-color: #3C3834;
+    color: #FCFCFC;
+}
+
+.div-button {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.div-button button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    color: #FCFCFC;
+}
+
+.div-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.div-perfil img {
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.div-perfil button {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: #FCFCFC;
+}
+
+.div-perfil button:hover {
+    background-color: #e4e4e7;
+}
+
+.div-button button.active {
+    background-color: #1C1C1C;
+    color: #AD9D8A;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+#content {
+    width: 90vw;
+    height: 100vh;
+}
+
+.dash-geral {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-image: url('');
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.cabecalhos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.cabecalhos h1 {
+    position: relative;
+    font-size: 48px;
+}
+
+.cabecalhos h1::before {
+    position: absolute;
+    content: "Nível de força:";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cabecalhos h1::after {
+    position: absolute;
+    content: "Nível de força:";
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}
+
+.cabecalhos h2 {
+    position: relative;
+    font-size: 36px;
+}
+
+.cabecalhos h2::before {
+    position: absolute;
+    content: "Sequência:";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cabecalhos h2::after {
+    position: absolute;
+    content: "Sequência:";
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}
+
+.dash-geral {
+    background-image: url('../assets/pages/forca/Forca-Background.png');
+    background-size: cover;
+}
