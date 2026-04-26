@@ -21,7 +21,7 @@ body {
 #sidebar {
     display: flex;
     flex-direction: column;
-    width: 10vw;
+    width: 15vw;
     height: 100vh;
     padding: 0 10px;
     border-right: 3px solid #837568;
@@ -81,7 +81,8 @@ body {
 }
 
 .div-perfil button:hover {
-    background-color: #e4e4e7;
+    background-color: #1C1C1C;
+    color: #AD9D8A;
 }
 
 .div-button button.active {
@@ -91,7 +92,7 @@ body {
 }
 
 #content {
-    width: 90vw;
+    width: 85vw;
     height: 100vh;
 }
 
@@ -184,4 +185,39 @@ body {
 .dash-geral {
     background-image: url('../assets/pages/forca/Forca-Background.png');
     background-size: cover;
+}
+
+.corpo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.progress-bar{
+    display: flex;
+    position: relative;
+    width: 699px;
+    height: 167px;
+    align-items: center;
+    padding: 40px 20px 40px 20px;
+}
+
+.progress-bar::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/pages/forca/Progress-Bar_Moldure.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.progress-bar-canvas{
+    
 }

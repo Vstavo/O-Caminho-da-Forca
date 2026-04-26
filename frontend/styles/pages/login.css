@@ -136,7 +136,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 70%;
-    height: 60vh;
+    min-height: 60vh;
     background-color: #0D0D0D;
     padding: 3rem;
     border: 1px solid #27272a;
