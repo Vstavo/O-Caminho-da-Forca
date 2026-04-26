@@ -1,4 +1,4 @@
-import { buscarNomeUsuario } from "./buscarNomeService.js";
+import { buscarNomeUsuario } from "./buscarDadosService.js";
 
 export async function autenticarUsuario(email, senha) {
     if (email === "" || senha === "") return;
@@ -20,6 +20,7 @@ export async function autenticarUsuario(email, senha) {
             const nomeData = await buscarNomeUsuario(email);
             if (nomeData && nomeData.length > 0) {
                 localStorage.setItem('nomeUsuario', nomeData[0].nome);
+                localStorage.setItem('emailUsuario', email);
             }
             console.log("Sucesso", json)
             localStorage.setItem('logged', email)

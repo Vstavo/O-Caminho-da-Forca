@@ -13,12 +13,17 @@ export function paginaForca(main) {
                 <h2>Sequência: <span id="sequencia">0</span><span> dias</span></h2>
             </div>
             <div class="corpo">
-                <div class="progress-bar">
-                    <canvas id="progress-bar-canvas" class="progress-bar-canvas"></canvas>
+                <div class="cima">
+                    <div class="progress-bar">
+                        <canvas id="progress-bar-canvas" class="progress-bar-canvas"></canvas>
+                    </div>
+                </div>
+                <div class="baixo">
+                    
                 </div>
             </div>
         </div>
     `;
 
-    criarBarraProgesso(50, main)
+    criarBarraProgesso(main)
 }

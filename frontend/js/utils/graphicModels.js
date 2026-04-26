@@ -1,10 +1,13 @@
+import { nivelUsuario } from "../services/graphicService.js";
 
 
-export function criarBarraProgesso(valor, main) {
+export async function criarBarraProgesso(main) {
+    const nivel = await nivelUsuario();
+
     const data = {
         labels: ['Força'],
         datasets: [{
-            data: [valor],
+            data: [nivel],
             backgroundColor: '#B8860B',
             barThickness: 150
         }]
@@ -40,5 +43,5 @@ export function criarBarraProgesso(valor, main) {
 
     const ctx = main.querySelector('#progress-bar-canvas').getContext('2d');
     new Chart(ctx, config)
-    main.querySelector('#nivel-de-forca').textContent = valor;
+    main.querySelector('#nivel-de-forca').textContent = nivel;
 }

@@ -67,6 +67,7 @@ function loginScreen() {
 
     btn.addEventListener('click', () => {
         localStorage.removeItem('nomeUsuario');
+        localStorage.removeItem('emailUsuario');
         const email = main.querySelector('#email').value;
         const senha = main.querySelector('#password').value;
         autenticarUsuario(email, senha);

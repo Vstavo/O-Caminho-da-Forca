@@ -11,8 +11,10 @@ const port = process.env.APP_PORT;
 const host = process.env.APP_HOST;
 
 const rotasUsuario = require('./src/routes/usuarios');
+const rotasGrafico = require('./src/routes/graphics');
 
 app.use('/usuarios', rotasUsuario);
+app.use('/graphics', rotasGrafico);
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}! \nPara acessar entre em: http://${host}:${port}`)

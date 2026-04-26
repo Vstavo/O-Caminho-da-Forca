@@ -68,6 +68,7 @@ function iniciar() {
     sairBtn.addEventListener('click', () => {
         localStorage.removeItem('logged')
         localStorage.removeItem('nomeUsuario')
+        localStorage.removeItem('emailUsuario');
         iniciar()
     });
     
