@@ -65,16 +65,17 @@ body {
     width: 100%;
 }
 
-.div-button button {
+.metal-button {
     padding: 20px 10px;
     font-size: 16px;
     cursor: pointer;
+    min-width: 260px;
+    min-height: 60px;
     background: transparent;
     background-image: url('../assets/pages/forca/button-moldure.png');
     background-size: 100% 100%;
     border: none;
     border-radius: 3px;
-    width: 100%;
     transition: background-color 0.3s ease;
     color: #FCFCFC;
     font-weight: bold;
@@ -146,7 +147,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
 }
 
-.div-button button.active {
+.metal-button.active {
     background-image: url('../assets/pages/forca/button-active.png');
     background-size: 100% 100%;
     color: #AD9D8A;
@@ -193,6 +194,11 @@ body {
 .cabecalhos h1 {
     position: relative;
     font-size: 48px;
+    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .cabecalhos h1::after {
@@ -244,6 +250,31 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
+}
+
+.cima h1 {
+    position: relative;
+    font-size: 48px;
+    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.cima h1::after {
+    position: absolute;
+    content: "Nível de força:";
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+    z-index: 1;
 }
 
 .progress-bar {

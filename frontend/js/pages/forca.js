@@ -9,11 +9,11 @@ export function paginaForca(main) {
     main.innerHTML = `
         <div class="conteudo">
             <div class="cabecalhos">
-                <h1 class="cinzel-decorative-black">Nível de força: <span class="medievalsharp-regular" id="nivel-de-forca">0</span></h1>
-                <h2 class="cinzel-decorative-black">Sequência: <span class="medievalsharp-regular" id="sequencia">0</span><span class="medievalsharp-regular"> dias</span></h2>
+            <h2 class="cinzel-decorative-black">Sequência: <span class="medievalsharp-regular" id="sequencia">0</span><span class="medievalsharp-regular"> dias</span></h2>
             </div>
             <div class="corpo">
-                <div class="cima">
+            <div class="cima">
+            <h1 class="cinzel-decorative-black">Nível de força: <span class="medievalsharp-regular" id="nivel-de-forca">0</span></h1>
                     <div class="progress-bar">
                         <canvas id="progress-bar-canvas" class="progress-bar-canvas"></canvas>
                     </div>

@@ -76,7 +76,7 @@ function iniciar() {
         forcaBtn.click()
     };
     
-    carregarInicio()
+    // carregarInicio()
 };
 
 iniciar();
