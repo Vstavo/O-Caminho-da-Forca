@@ -2,7 +2,7 @@ const database = require('../database/config')
 
 function buscarNivelUsuario (email) {
     const instrucaoSql = `
-        SELECT nivel FROM usuarios WHERE email = '${email}'
+        SELECT SUM(amount) FROM xp_logs WHERE email = '${email}'
     `;
 
     return database.executar(instrucaoSql)

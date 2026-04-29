@@ -1,8 +1,8 @@
-import { buscarNivelUsuario } from "./buscarDadosService.js";
+import { buscarXpUsuario } from "./buscarDadosService.js";
 
 export async function nivelUsuario() {
-    const valorNivel = await buscarNivelUsuario();
-    const nivel = valorNivel[0].nivel;
+    const valorNivel = await buscarXpUsuario();
+    const nivel = (valorNivel[0].nivel) / 100;
 
-    return nivel
+    return parseInt(nivel)
 }

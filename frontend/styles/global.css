@@ -203,7 +203,7 @@ body {
 
 .cabecalhos h1::after {
     position: absolute;
-    content: "Nível de força:";
+    content: "Estágio:";
     inset: 0;
     top: 0;
     left: 0;

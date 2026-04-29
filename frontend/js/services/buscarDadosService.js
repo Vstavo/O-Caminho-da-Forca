@@ -15,7 +15,7 @@ export async function buscarNomeUsuario(email) {
     }
 }
 
-export async function buscarNivelUsuario() {
+export async function buscarXpUsuario() {
     const email = localStorage.getItem('emailUsuario') || '0';
 
     try {
