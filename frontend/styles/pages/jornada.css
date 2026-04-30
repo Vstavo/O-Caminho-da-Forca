@@ -1,0 +1,25 @@
+
+.dash-jornada .cabecalhos h1 {
+    position: relative;
+    font-size: 48px;
+    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.dash-jornada .cabecalhos h1::after {
+    position: absolute;
+    content: "Em busca do One Piece";
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}

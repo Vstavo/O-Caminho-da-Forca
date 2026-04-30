@@ -8,7 +8,7 @@ export function paginaJornada(main) {
     main.innerHTML = `
         <div class="conteudo" >
             <div class="cabecalhos">
-            <h1></h1>
+            <h1 class="cinzel-decorative-black">Em busca do One Piece</h1>
             </div>
             <div class="corpo" >
                 <button class="medievalsharp-regular metal-button" id="sequencia-button">Não vou Desistir</button>
