@@ -17,14 +17,11 @@ export async function autenticarUsuario(email, senha) {
 
         if (response.ok) {
             const json = await response.json()
-
-
-            const nomeData = await buscarNomeUsuario();
             
             localStorage.setItem('token', json.token)
 
             console.log("Login OK")
-            
+
             window.location = 'app.html';
         } else {
             console.error("Falha na autenticação")

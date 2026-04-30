@@ -115,11 +115,38 @@ function cadScreen() {
 
     const btn = main.querySelector('#cadBtn');
 
+    const senha = main.querySelector("#password");
+
+    const caracteresNecessarios = ['!', '@', '#', '$', '%', '&', '*', '.', '-', '_']
+
+    function caracterVerificacao() {
+        const valor = senha.value;
+        let temCaracter = false;
+
+        for (let i = 0; i < valor.length; i++) {
+            for (let j = 0; j < caracteresNecessarios.length; j++) {
+                if (valor[i].includes(caracteresNecessarios[j])){
+                    temCaracter = true
+                    break;
+                }
+            }
+        }
+
+        return temCaracter;
+    }
+
     btn.addEventListener('click', () => {
         const nome = main.querySelector('#nome').value;
         const email = main.querySelector('#email').value;
         const senha = main.querySelector('#password').value;
         const confirmSenha = main.querySelector('#confirmPassword').value;
+        
+        const especial = caracterVerificacao()
+
+        if (!especial) {
+            alert('A senha deve ter no mínimo um caracter especial')
+            return;
+        }
 
         if (senha !== confirmSenha) {
             alert('As senhas não coincidem.');

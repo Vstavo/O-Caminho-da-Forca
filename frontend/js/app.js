@@ -3,13 +3,20 @@ import { paginaJornada } from "./pages/jornada.js";
 import { paginaMao } from "./pages/mao.js";
 import { paginaEspada } from "./pages/espada.js";
 import { paginaProposito } from "./pages/proposito.js";
+import { buscarNomeUsuario } from "./services/buscarDadosService.js";
 
-function iniciar() {
-    const nome = localStorage.getItem('nomeUsuario') || 'Usuário';
+async function iniciar() {
+    const nome = await buscarNomeUsuario();
 
+    
+    
     const main = document.getElementById('content');
-
-
+    
+    if (!nome) {
+        main.style.display = 'none'
+        window.location = 'login.html'
+    }
+        
     const userName = document.getElementById('user-name');
     const forcaBtn = document.getElementById('forca-button');
     const jornadaBtn = document.getElementById('jornada-button');
@@ -18,7 +25,7 @@ function iniciar() {
     const propositoBtn = document.getElementById('proposito-button');
     const sairBtn = document.getElementById('logout-button');
 
-    userName.textContent = nome;
+    userName.textContent = nome[0].name;
     
     
     const buttons = [
@@ -61,9 +68,7 @@ function iniciar() {
     });
 
     sairBtn.addEventListener('click', () => {
-        localStorage.removeItem('logged')
-        localStorage.removeItem('nomeUsuario')
-        localStorage.removeItem('emailUsuario');
+        localStorage.removeItem('token');
         iniciar()
     });
     

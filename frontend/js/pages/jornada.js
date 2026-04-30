@@ -1,3 +1,5 @@
+import { marcarDia } from "../services/sequenciaService.js";
+
 export function paginaJornada(main) {
     console.log('Página carregada');
     main.className = '';
@@ -5,5 +7,7 @@ export function paginaJornada(main) {
 
     const sequenciaBtn = main.querySelector('#sequencia-button');
 
-    
+    sequenciaBtn.addEventListener('click', () => {
+        marcarDia()
+    })
 }

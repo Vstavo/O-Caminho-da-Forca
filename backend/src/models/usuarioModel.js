@@ -16,7 +16,7 @@ function cadastrarUsuario(email, senha, nome) {
     return database.executar(instrucaoSql)
 }
 
-function buscarDadosUsuario (userId) {
+function buscarNomeUsuario (userId) {
     const instrucaoSql = `
         SELECT name FROM users WHERE id = '${userId}'
     `;
@@ -27,5 +27,5 @@ function buscarDadosUsuario (userId) {
 module.exports = {
     autenticarUsuario,
     cadastrarUsuario,
-    buscarDadosUsuario
+    buscarNomeUsuario
 }

@@ -3,7 +3,7 @@ const usuarioModel = require('../models/usuarioModel')
 const sessoes = {}
 
 function gerarToken() {
-    return (Math.random() * 10.05 / 2)
+    return ((Math.random() + 1) * 200.05 / 2)
 }
 
 function autenticarUsuario(req, res) {

@@ -1,6 +1,13 @@
-export async function buscarNomeUsuario(email) {
+export async function buscarNomeUsuario() {
+    const token = localStorage.getItem('token');
+
     try {
-        const response = await fetch(`http://localhost:8080/usuarios/email?email=${encodeURIComponent(email)}`);
+        const response = await fetch(`http://localhost:8080/usuarios/nome`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
 
         if (!response.ok) {
             throw new Error('Falha ao buscar nome')
