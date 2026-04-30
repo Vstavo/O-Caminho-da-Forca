@@ -70,6 +70,35 @@ async function atualizarStreaks(req, res) {
 
 }
 
+async function buscarStreaks(req, res) {
+    const userId = req.usuario.userId
+
+    try {
+        const resposta = await sistemModel.buscarStreak(userId)
+
+        if (!resposta || resposta.length < 0) {
+            console.error('Falha ao buscar streak')
+            return res.status(401).json('Falha ao buscar streak')
+        }
+
+        let streakAtual = 0
+        let melhorStreak = 0
+        let ultimoCheckin = 0
+        
+        if (resposta.length > 0) {
+            streakAtual = resposta[0].current_streak;
+            melhorStreak = resposta[0].best_streak;
+            ultimoCheckin = resposta[0].last_checkin_date;
+        }
+
+        return res.status(200).json({ streakAtual, melhorStreak, ultimoCheckin})        
+    } catch (erro) {
+        console.error(erro)
+        res.status(500).json({ erro: erro.sqlMessage })
+    }
+}
+
 module.exports = {
-    atualizarStreaks
+    atualizarStreaks,
+    buscarStreaks
 }

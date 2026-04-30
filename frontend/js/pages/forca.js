@@ -1,4 +1,5 @@
 import { getTitulo, getForca } from "../services/estagioService.js";
+import { buscarStreak } from "../services/sequenciaService.js";
 import { criarBarraProgesso } from "../utils/graphicModels.js";
 
 export async function paginaForca(main) {
@@ -41,5 +42,6 @@ export async function paginaForca(main) {
 
     main.querySelector('#estagio').textContent = await getTitulo();
     main.querySelector('#nivel-de-forca').textContent = await getForca();
+    main.querySelector('#sequencia').textContent = await buscarStreak()
     criarBarraProgesso(main)
 }

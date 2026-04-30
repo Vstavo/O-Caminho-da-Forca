@@ -174,6 +174,16 @@ body {
     border: none;
 }
 
+.dash-jornada {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-image: url('../assets/pages/jornada/one-piece-sea.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+}
+
 .conteudo {
     display: flex;
     flex-direction: column;
@@ -190,64 +200,6 @@ body {
     width: 100%;
     padding: 20px;
     font-weight: bold;
-    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
-
-.cabecalhos h1 {
-    position: relative;
-    font-size: 48px;
-    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
-
-.cabecalhos h1::after {
-    position: absolute;
-    content: "Estágio:";
-    inset: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
-    -webkit-background-clip: text;
-    background-clip: text;
-    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
-    z-index: 1;
-}
-
-.cabecalhos h2 {
-    position: relative;
-    font-size: 36px;
-}
-
-.cabecalhos h2::before {
-    position: absolute;
-    content: "Sequência:";
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.cabecalhos h2::after {
-    position: absolute;
-    content: "Sequência:";
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
-    -webkit-background-clip: text;
-    background-clip: text;
-    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
-    z-index: 1;
 }
 
 .corpo {
@@ -258,7 +210,7 @@ body {
     height: 100%;
 }
 
-.cima h1 {
+.dash-geral .cima h1 {
     position: relative;
     font-size: 48px;
     background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
@@ -268,7 +220,7 @@ body {
     color: transparent;
 }
 
-.cima h1::after {
+.dash-geral .cima h1::after {
     position: absolute;
     content: "Nível de força:";
     inset: 0;
@@ -283,7 +235,7 @@ body {
     z-index: 1;
 }
 
-.progress-bar {
+.dash-geral .progress-bar {
     display: flex;
     position: relative;
     width: 699px;
@@ -293,7 +245,7 @@ body {
     aspect-ratio: 699 / 167;
 }
 
-.progress-bar::before {
+.dash-geral .progress-bar::before {
     position: absolute;
     content: "";
     top: 0;
@@ -307,7 +259,7 @@ body {
     background-position: center;
 }
 
-.progress-bar::after {
+.dash-geral .progress-bar::after {
     position: absolute;
     content: "";
     top: 0;
@@ -321,7 +273,7 @@ body {
     background-position: center;
 }
 
-.progress-bar-canvas {
+.dash-geral .progress-bar-canvas {
     width: 100%;
     height: 100%;
     display: block;
@@ -345,7 +297,7 @@ body {
     justify-content: center;
 }
 
-.xp-total {
+.dash-geral .xp-total {
     width: 300px;
     height: 150px;
     background-image: url('../assets/pages/forca/Message-modal.png');

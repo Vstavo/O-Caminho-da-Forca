@@ -8,4 +8,8 @@ router.post('/dia', controlesUsuario.autenticarSessao, function(req, res) {
     controllerStreaks.atualizarStreaks(req, res)
 })
 
+router.get('/streak', controlesUsuario.autenticarSessao, function(req, res) {
+    controllerStreaks.buscarStreaks(req, res)
+})
+
 module.exports = router
