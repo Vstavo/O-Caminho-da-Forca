@@ -9,7 +9,9 @@ async function atualizarStreaks(req, res) {
         
         let streakAtual = 0;
         let melhorStreak = 0;
-        let ultimoCheckin = null
+        let ultimoCheckin = null;
+        let bonus = 0;
+        let xp = 10;
 
         if (resultado.length > 0) {
             streakAtual = resultado[0].current_streak;
@@ -34,11 +36,15 @@ async function atualizarStreaks(req, res) {
         }
     
         if (diffDias === 0) {
+            console.log(`O usuário de id = ${userId} já fez checkin hoje`)
             return res.status(200).json({ mensagem: "Já fez checkin hoje" })
         }
     
         if (diffDias === 1) {
             streakAtual += 1
+            if (streakAtual % 3 === 0) {
+                bonus = 15
+            }
         } else {
             streakAtual = 1
         }
@@ -47,10 +53,14 @@ async function atualizarStreaks(req, res) {
             melhorStreak = streakAtual
         }
 
+        quantidadeXp = xp + bonus;
+
         const dataSQL = hoje.toISOString().slice(0, 10);
     
         await sistemModel.marcarDiaConcluido(userId, streakAtual, melhorStreak, `'${dataSQL}'`);
-        res.status(200).json({ streakAtual, melhorStreak })
+        res.status(200).json({ streakAtual, melhorStreak, dataSQL })
+
+        await sistemModel.adicionarXp(userId, quantidadeXp, 'checkin', dataSQL)
         
     }catch (erro) {
         console.error(erro)
