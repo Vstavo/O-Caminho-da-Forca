@@ -11,6 +11,12 @@ body {
     overflow: hidden;
 }
 
+.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
 .medievalsharp-regular {
   font-family: "MedievalSharp", cursive;
   font-weight: 400;
@@ -337,4 +343,22 @@ body {
     height: 50%;
     align-items: center;
     justify-content: center;
+}
+
+.xp-total {
+    width: 300px;
+    height: 150px;
+    background-image: url('../assets/pages/forca/Message-modal.png');
+    background-position: center;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: goldenrod;
+    transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
 }

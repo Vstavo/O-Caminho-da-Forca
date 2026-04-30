@@ -1,9 +1,9 @@
 const graphicModel = require('../models/graphicModel')
 
 function buscarNivel(req, res){
-    const email = req.query.email
+    const userId = req.usuario.userId
 
-    graphicModel.buscarNivelUsuario(email)
+    graphicModel.buscarNivelUsuario(userId)
     .then(
         function(resultadoNivel) {
             if(resultadoNivel.length > 0) {

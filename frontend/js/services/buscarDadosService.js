@@ -16,10 +16,15 @@ export async function buscarNomeUsuario(email) {
 }
 
 export async function buscarXpUsuario() {
-    const email = localStorage.getItem('emailUsuario') || '0';
+    const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch(`http://localhost:8080/graphics/nivel?email=${encodeURIComponent(email)}`)
+        const response = await fetch(`http://localhost:8080/graphics/nivel`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        })
 
         if (!response.ok) {
             throw new Error('Falha ao buscar nível')

@@ -8,12 +8,7 @@ function iniciar() {
     const nome = localStorage.getItem('nomeUsuario') || 'Usuário';
 
     const main = document.getElementById('content');
-    const logged = localStorage.getItem('logged');
-    if (!logged) {
-        main.style.display = 'none';
-        window.location = 'login.html';
-        return;
-    };
+
 
     const userName = document.getElementById('user-name');
     const forcaBtn = document.getElementById('forca-button');

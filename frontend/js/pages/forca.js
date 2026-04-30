@@ -1,6 +1,7 @@
+import { getTitulo, getForca } from "../services/estagioService.js";
 import { criarBarraProgesso } from "../utils/graphicModels.js";
 
-export function paginaForca(main) {
+export async function paginaForca(main) {
     console.log('Página carregada');
     main.innerHTML = '';
     main.className = '';
@@ -18,6 +19,7 @@ export function paginaForca(main) {
                     <div class="progress-bar">
                         <canvas id="progress-bar-canvas" class="progress-bar-canvas"></canvas>
                     </div>
+                    <div class="xp-total cinzel-decorative-bold hidden" id="xp-total">0/100</div>
                 </div>
                 <div class="baixo">
 
@@ -26,5 +28,18 @@ export function paginaForca(main) {
         </div>
     `;
 
+    const progessBar = main.querySelector('.progress-bar');
+    const xpModal = main.querySelector('#xp-total');
+
+    progessBar.addEventListener('mouseenter', () => {
+        xpModal.classList.toggle('hidden', false)
+    });
+
+    progessBar.addEventListener('mouseleave', () => {
+        xpModal.classList.toggle('hidden', true)
+    })
+
+    main.querySelector('#estagio').textContent = await getTitulo();
+    main.querySelector('#nivel-de-forca').textContent = await getForca();
     criarBarraProgesso(main)
 }

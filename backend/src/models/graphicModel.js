@@ -1,8 +1,8 @@
 const database = require('../database/config')
 
-function buscarNivelUsuario (email) {
+function buscarNivelUsuario (userId) {
     const instrucaoSql = `
-        SELECT SUM(amount) FROM xp_logs WHERE email = '${email}'
+        SELECT SUM(amount) AS xp_total FROM xp_logs WHERE user_id = ${userId}
     `;
 
     return database.executar(instrucaoSql)

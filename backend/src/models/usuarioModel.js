@@ -2,7 +2,7 @@ const database = require('../database/config');
 
 function autenticarUsuario(email, senha) {
     const instrucaoSql = `
-        SELECT email, password FROM users where email = '${email}' AND password = '${senha}'
+        SELECT id, name, email, password FROM users where email = '${email}' AND password = '${senha}'
     `;
 
     return database.executar(instrucaoSql)
@@ -16,9 +16,9 @@ function cadastrarUsuario(email, senha, nome) {
     return database.executar(instrucaoSql)
 }
 
-function buscarNomeUsuario (email) {
+function buscarDadosUsuario (userId) {
     const instrucaoSql = `
-        SELECT name FROM users WHERE email = '${email}'
+        SELECT name FROM users WHERE id = '${userId}'
     `;
 
     return database.executar(instrucaoSql)
@@ -27,5 +27,5 @@ function buscarNomeUsuario (email) {
 module.exports = {
     autenticarUsuario,
     cadastrarUsuario,
-    buscarNomeUsuario
+    buscarDadosUsuario
 }

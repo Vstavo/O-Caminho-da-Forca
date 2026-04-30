@@ -1,5 +1,11 @@
 const usuarioModel = require('../models/usuarioModel')
 
+const sessoes = {}
+
+function gerarToken() {
+    return (Math.random() * 10.05 / 2)
+}
+
 function autenticarUsuario(req, res) {
     const email = req.body.emailServer;
     const senha = req.body.senhaServer;
@@ -9,7 +15,18 @@ function autenticarUsuario(req, res) {
         function (resultadoAutenticar){
             if (resultadoAutenticar.length === 1){
                 console.log('Usuário encontrado')
-                res.status(200).json(resultadoAutenticar)
+                
+                const usuario = resultadoAutenticar[0];
+                
+                const token = gerarToken()
+                
+                sessoes[token] = {
+                    userId: usuario.id,
+                    nome: usuario.name,
+                    email: usuario.email,
+                    criadoEm: new Date()
+                }
+                res.status(200).json({ token })
             } else {
                 console.log('Email e/ou senha inválidos!')
                 res.status(401).json(resultadoAutenticar)
@@ -22,6 +39,26 @@ function autenticarUsuario(req, res) {
         }
     )
 };
+
+function autenticarSessao(req, res, next) {
+    const authHeader = req.headers['authorization'];
+
+    if (!authHeader) {
+        return res.status(401).json({ erro: 'Sem token' });
+    };
+
+    const token = authHeader.split(' ')[1];
+
+    const sessao = sessoes[token]
+
+    if (!sessao) {
+        return res.status(403).json({ erro: 'Sessão inválida' })
+    }
+
+    req.usuario = sessao;
+
+    next()
+}
 
 function cadastrarUsuario(req, res) {
     const email = req.body.emailServer;
@@ -47,9 +84,9 @@ function cadastrarUsuario(req, res) {
 }
 
 function buscarNomeUsuario(req, res) {
-    const email = req.query.email;
+    const userId = req.usuario.userId;
 
-    usuarioModel.buscarNomeUsuario(email)
+    usuarioModel.buscarNomeUsuario(userId)
     .then(
         function (resultadoBuscar){
             if (resultadoBuscar.length > 0) {
@@ -69,6 +106,7 @@ function buscarNomeUsuario(req, res) {
 
 module.exports = {
     autenticarUsuario,
+    autenticarSessao,
     cadastrarUsuario,
     buscarNomeUsuario
 }
