@@ -5,8 +5,342 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+    z-index: 99;
 }
 
 .dash-eclipse .modal-base .modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    min-height: 250px;
+    background-color: #0D0D0D;
+    padding: 20px;
+    gap: 20px;
+    border: 2px solid #dd0836;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    z-index: 100;
+    pointer-events:visibleFill;
+}
 
+.dash-eclipse .modal-base .modal-close-button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.dash-eclipse .modal-base .modal-close-button-container .modal-close-button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    background-image: url('../assets/pages/eclipse/close.png');
+    background-position: center;
+    background-size: 100% 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-eclipse .modal-base .modal-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dd0836;
+}
+
+.dash-eclipse .modal-base .modal-title-container .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #dd0836;
+}
+
+.dash-eclipse .modal-selection::selection{
+    background-color: goldenrod;
+    color: #0D0D0D;
+}
+
+.dash-eclipse .modal-selection::-moz-selection{
+    background-color: goldenrod;
+    color: #0D0D0D;
+}
+
+.dash-eclipse .modal-base .modal-descricao-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.dash-eclipse .modal-base .modal-descricao-container .modal-descricao-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #dd0836;
+}
+
+.dash-eclipse .modal-base .modal-descricao-container .modal-descricao-paragrafo {
+    font-size: 16px;
+    color: #dfdfdf;
+    text-align: center;
+}
+
+.dash-eclipse .modal-base .modal-exemplo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.dash-eclipse .modal-base .modal-exemplo-container .modal-exemplo-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #dd0836;
+}
+
+.dash-eclipse .modal-base .modal-exemplo-container .modal-exemplo-paragrafo {
+    font-size: 16px;
+    color: #dfdfdf;
+    text-align: center;
+}
+
+.dash-eclipse .modal-base .modal-buttons-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.dash-eclipse .modal-base .modal-buttons-container .modal-button {
+    min-width: 120px;
+    height: 40px;
+    background-color: #202020;
+    color: #dfdfdf;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #dd0836;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    padding: 0 20px;
+}
+
+.dash-eclipse .modal-base .modal-buttons-container .modal-button:hover {
+    background-color: #dd0836;
+    color: #0D0D0D;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-eclipse .modal-base .modal-buttons-container .modal-button:active {
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transform: scale(0.97);
+    -webkit-transform: scale(0.97);
+    -moz-transform: scale(0.97);
+    -ms-transform: scale(0.97);
+    -o-transform: scale(0.97);
+}
+
+.dash-eclipse .modal-base .modal-buttons-container .modal-button.cedi {
+    min-width: 120px;
+    height: 40px;
+    background-color: #202020;
+    color: #dd0836;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #dd0836;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    padding: 0 20px;
+}
+
+.dash-eclipse .modal-base .modal-buttons-container .modal-button.cedi:hover {
+    background-color: #dd0836;
+    color: #dfdfdf;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-eclipse .berserk-button {
+    width: 100px;
+    height: 100px;
+    background-image: url('../assets/pages/forca/Berserk_Moldure.png');
+    background-position: center;
+    background-size: 100% 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-eclipse .berserk-button:hover {
+    transform: scale(1.03);
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-eclipse .berserk-button:active {
+    transform: scale(0.97);
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-eclipse .proximo-label span{
+    position: relative;
+    background-image: linear-gradient(to right, #7e3948, #8e474b, #a77383, #8e474b, #7e3948);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+.dash-eclipse .proximo-label{
+    position: relative;
+    background-color: #0d0d0d30;
+    backdrop-filter: blur(5px);
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 8px solid transparent;
+    border-image: url('../assets/borders/Bronze-Border.png') 30 round;
+}
+
+.dash-eclipse .cards-container {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+
+.dash-eclipse .cards-container .card-demon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 225px;
+    height: 460px;
+    background-color: #202020;
+    border: 2px solid #dd0836;
+    color: #dd0836;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-eclipse .cards-container .card-demon-image {
+    width: 175px;
+    height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-eclipse .cards-container .card-demon-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.dash-eclipse .cards-container .card-demon:hover {
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.dash-eclipse .cards-container .card-demon:active {
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transform: scale(0.97);
+    -webkit-transform: scale(0.97);
+    -moz-transform: scale(0.97);
+    -ms-transform: scale(0.97);
+    -o-transform: scale(0.97);
 }

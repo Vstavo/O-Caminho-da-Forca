@@ -128,3 +128,12 @@
     border-image: url('../assets/borders/Stone-Border.png') 30 round;
 }
 
+.dash-jornada .modal-selection::selection{
+    background-color: goldenrod;
+    color: #0D0D0D;
+}
+
+.dash-jornada .modal-selection::-moz-selection{
+    background-color: goldenrod;
+    color: #0D0D0D;
+}

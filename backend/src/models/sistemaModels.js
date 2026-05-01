@@ -29,6 +29,8 @@ function adicionarXp(userId, quantidade, fonte, data) {
     return database.executar(instrucaoSQL)
 };
 
+
+
 module.exports = {
     marcarDiaConcluido,
     buscarStreak,

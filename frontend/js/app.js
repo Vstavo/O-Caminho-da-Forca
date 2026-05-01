@@ -73,8 +73,8 @@ async function iniciar() {
     });
     
     function carregarInicio() {
-        // forcaBtn.click()
-        eclipseBtn.click()
+        forcaBtn.click()
+        // eclipseBtn.click()
     };
     
     carregarInicio()
