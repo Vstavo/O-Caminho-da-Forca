@@ -44,3 +44,26 @@ export async function buscarXpUsuario() {
         return null
     }
 }
+
+export async function verificarCheckinHoje() {
+    const token = localStorage.getItem('token')
+
+    try {
+        const response = await fetch(`http://localhost:8080/marcar/streak`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+
+        if (!response.ok) {
+            throw new Error('Falha ao buscar ultimo checkin')
+        }
+
+        const data = await response.json()
+        return await data.status;
+    } catch (error) {
+        console.error('Erro ao buscar ultimo checkin', error)
+        return null
+    }
+}

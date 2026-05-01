@@ -1,0 +1,229 @@
+.dash-geral .cabecalhos h1 {
+    position: relative;
+    font-size: 48px;
+    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-bottom: 20px;
+}
+
+.dash-geral .cabecalhos h1::after {
+    position: absolute;
+    content: "Estágio:";
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}
+
+.dash-geral .cabecalhos h2 {
+    position: relative;
+    font-size: 36px;
+    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-bottom: 30px;
+}
+
+.dash-geral .cabecalhos h2::before {
+    position: absolute;
+    content: "Sequência:";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dash-geral .cabecalhos h2::after {
+    position: absolute;
+    content: "Sequência:";
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}
+
+
+.dash-geral .cima h1 {
+    position: relative;
+    font-size: 36px;
+    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.dash-geral .cima h1::after {
+    position: absolute;
+    content: "Nível de força:";
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}
+
+.dash-geral .progress-bar {
+    display: flex;
+    position: relative;
+    width: 699px;
+    height: 167px;
+    align-items: center;
+    padding: 20px;
+    aspect-ratio: 699 / 167;
+}
+
+.dash-geral .progress-bar::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -24%;
+    z-index: 0;
+    width: 25%;
+    height: 100%;
+    background-image: url('../assets/pages/forca/Forca-Block.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.dash-geral .progress-bar::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/pages/forca/Progress-Bar_Moldure.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.dash-geral .progress-bar-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.dash-geral .xp-total {
+    width: 300px;
+    height: 150px;
+    background-image: url('../assets/pages/forca/Message-modal.png');
+    background-position: center;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: goldenrod;
+    transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+}
+
+.dash-geral .berserk-button {
+    width: 100px;
+    height: 100px;
+    background-image: url('../assets/pages/forca/Berserk_Moldure.png');
+    background-position: center;
+    background-size: 100% 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-geral .berserk-button:hover {
+    transform: scale(1.03);
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-geral .berserk-button:active {
+    transform: scale(0.97);
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-geral .comecar-label span{
+    position: relative;
+    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+.dash-geral .comecar-label{
+    position: relative;
+    background-color: #0d0d0d30;
+    backdrop-filter: blur(5px);
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 8px solid transparent;
+    border-image: url('../assets/borders/Bronze-Border.png') 30 round;
+}
+
+/* .dash-geral .comecar-label::before {
+    position: absolute;
+    z-index: 0;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/pages/forca/Pedra-moldura.png');
+    background-size: 100% 100%;
+    background-position: center;
+} */

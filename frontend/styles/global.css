@@ -46,7 +46,18 @@ body {
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: #0D0D0D;
+}
+
+.app-geral{
+    background-color: #0d0d0d;
+}
+
+.app-jornada{
+    background: linear-gradient(to bottom, #53b8e7, #0048a7);
+}
+
+.app-eclipse {
+    background: linear-gradient(to bottom, #4d1427, #180109);
 }
 
 #sidebar {
@@ -184,6 +195,16 @@ body {
     border: none;
 }
 
+.dash-eclipse {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-image: url('../assets/pages/eclipse/eclipse-berserk.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+}
+
 .conteudo {
     display: flex;
     flex-direction: column;
@@ -210,75 +231,6 @@ body {
     height: 100%;
 }
 
-.dash-geral .cima h1 {
-    position: relative;
-    font-size: 48px;
-    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
-
-.dash-geral .cima h1::after {
-    position: absolute;
-    content: "Nível de força:";
-    inset: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, #c59d67, #5a3e25);
-    -webkit-background-clip: text;
-    background-clip: text;
-    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
-    z-index: 1;
-}
-
-.dash-geral .progress-bar {
-    display: flex;
-    position: relative;
-    width: 699px;
-    height: 167px;
-    align-items: center;
-    padding: 20px;
-    aspect-ratio: 699 / 167;
-}
-
-.dash-geral .progress-bar::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: -24%;
-    z-index: 0;
-    width: 25%;
-    height: 100%;
-    background-image: url('../assets/pages/forca/Forca-Block.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-}
-
-.dash-geral .progress-bar::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/pages/forca/Progress-Bar_Moldure.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-}
-
-.dash-geral .progress-bar-canvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
 .cima {
     display: flex;
     gap: 20px;
@@ -293,24 +245,42 @@ body {
     gap: 20px;
     width: 100%;
     height: 50%;
-    align-items: center;
     justify-content: center;
 }
 
-.dash-geral .xp-total {
-    width: 300px;
-    height: 150px;
+.container-mensagem {
     background-image: url('../assets/pages/forca/Message-modal.png');
     background-position: center;
     background-size: 100% 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-width: 300px;
+    max-width: 600px;
+    min-height: 150px;
+    padding: 40px;
+}
+
+.titulo-mensagem {
     font-size: 24px;
     color: goldenrod;
-    transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    -ms-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
+    text-align: center;
+}
+
+.corpo-mensagem {
+    font-size: 18px;
+    color: #E5E5E5;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.corpo-mensagem-destaque {
+    font-size: 18px;
+    color: rgb(192, 146, 30);
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.vertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

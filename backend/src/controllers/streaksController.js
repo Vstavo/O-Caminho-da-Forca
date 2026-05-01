@@ -91,7 +91,27 @@ async function buscarStreaks(req, res) {
             ultimoCheckin = resposta[0].last_checkin_date;
         }
 
-        return res.status(200).json({ streakAtual, melhorStreak, ultimoCheckin})        
+        const hoje = new Date();
+        hoje.setHours(0,0,0,0);
+
+        let diffDias = 999
+
+        if (ultimoCheckin) {
+            const ultimo = new Date(ultimoCheckin)
+            ultimo.setHours(0,0,0,0)
+
+            const diffTempo = hoje - ultimo
+
+            diffDias = Math.floor(diffTempo / (1000 * 60 * 60 * 24))
+            
+        }
+    
+        if (diffDias === 0) {
+            console.log(`O usuário de id = ${userId} fez checkin hoje`)
+            return res.status(200).json({ status: "Fez checkin hoje", streakAtual, melhorStreak, ultimoCheckin })
+        }
+
+        return res.status(200).json({ status: "Não fez checkin", streakAtual, melhorStreak, ultimoCheckin})        
     } catch (erro) {
         console.error(erro)
         res.status(500).json({ erro: erro.sqlMessage })

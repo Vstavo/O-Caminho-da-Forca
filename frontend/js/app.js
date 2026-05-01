@@ -1,6 +1,6 @@
 import { paginaForca } from "./pages/forca.js";
 import { paginaJornada } from "./pages/jornada.js";
-import { paginaMao } from "./pages/mao.js";
+import { paginaEclipse } from "./pages/eclipse.js";
 import { paginaEspada } from "./pages/espada.js";
 import { paginaProposito } from "./pages/proposito.js";
 import { buscarNomeUsuario } from "./services/buscarDadosService.js";
@@ -20,8 +20,8 @@ async function iniciar() {
     const userName = document.getElementById('user-name');
     const forcaBtn = document.getElementById('forca-button');
     const jornadaBtn = document.getElementById('jornada-button');
-    const maoBtn = document.getElementById('mao-de-deus-button');
-    const espadaBtn = document.getElementById('caminho-da-espada-button');
+    const eclipseBtn = document.getElementById('eclipse-button');
+    const espadaBtn = document.getElementById('espada-button');
     const propositoBtn = document.getElementById('proposito-button');
     const sairBtn = document.getElementById('logout-button');
 
@@ -31,7 +31,7 @@ async function iniciar() {
     const buttons = [
         forcaBtn,
         jornadaBtn,
-        maoBtn,
+        eclipseBtn,
         espadaBtn,
         propositoBtn
     ];
@@ -52,9 +52,9 @@ async function iniciar() {
         paginaJornada(main);
     });
     
-    maoBtn.addEventListener('click', () => {
-        deixarAtivoBtn(maoBtn);
-        paginaMao(main);
+    eclipseBtn.addEventListener('click', () => {
+        deixarAtivoBtn(eclipseBtn);
+        paginaEclipse(main);
     });
     
     espadaBtn.addEventListener('click', () => {
