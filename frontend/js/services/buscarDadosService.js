@@ -61,7 +61,7 @@ export async function verificarCheckinHoje() {
         }
 
         const data = await response.json()
-        return await data.status;
+        return await data.fezCheckin;
     } catch (error) {
         console.error('Erro ao buscar ultimo checkin', error)
         return null

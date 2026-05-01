@@ -108,10 +108,10 @@ async function buscarStreaks(req, res) {
     
         if (diffDias === 0) {
             console.log(`O usuário de id = ${userId} fez checkin hoje`)
-            return res.status(200).json({ status: "Fez checkin hoje", streakAtual, melhorStreak, ultimoCheckin })
+            return res.status(200).json({ fezCheckin: true, streakAtual, melhorStreak, ultimoCheckin })
         }
 
-        return res.status(200).json({ status: "Não fez checkin", streakAtual, melhorStreak, ultimoCheckin})        
+        return res.status(200).json({ fezCheckin: false, streakAtual, melhorStreak, ultimoCheckin})        
     } catch (erro) {
         console.error(erro)
         res.status(500).json({ erro: erro.sqlMessage })
