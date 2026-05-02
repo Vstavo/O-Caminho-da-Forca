@@ -67,3 +67,31 @@ export async function verificarCheckinHoje() {
         return null
     }
 }
+
+export async function buscarResumoSemanal() {
+    const token = localStorage.getItem('token')
+
+    try {
+
+        const resposta = await fetch('http://localhost:8080/mental/resumo', {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+
+        const data = await resposta.json();
+
+        const resumoSemanal = {
+            estadoMaisfrequente : data.state ? data.state : null,
+            piorBloqueio : data.piorBloqueio ? data.piorBloqueio : null,
+            bloqueios : data.bloqueios
+        }
+
+        return resumoSemanal
+
+    } catch(error) {
+        console.error('Erro ao buscar resumo semanal', error)
+        return null
+    }
+}

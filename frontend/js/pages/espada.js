@@ -1,4 +1,6 @@
-import { verificarCheckinHoje } from "../services/buscarDadosService.js";
+import { buscarResumoSemanal, verificarCheckinHoje } from "../services/buscarDadosService.js";
+import { criarGraficoBloqueios } from "../utils/graphicModels.js";
+import { mostrarResumoNaTela } from "../utils/mental.js";
 import { mostrarModalEstado } from "../utils/modal.js";
 
 export async function paginaEspada(main) {
@@ -27,8 +29,13 @@ export async function paginaEspada(main) {
                 <div class="corpo">
                     <div class="dashboard-container">
                         <div class="kpi-container">
-                            <span class="kpi-title cinzel-decorative-bold modal-selection">Você esteve majoritariamente <span class="cinzel-decorative-black corpo-mensagem-destaque-blue modal-selection" id="estado-majoritario">focado</span> esta semana</span>
-                            <span class="kpi-subtitle cinzel-decorative-bold modal-selection">Você ficou <span class="cinzel-decorative-black corpo-mensagem-destaque-blue modal-selection" id="estado-consecutivo">focado</span> por <span class="cinzel-decorative-black corpo-mensagem-destaque-blue modal-selection" id="dias-conseutivos">5</span> dias consecutivos</span>
+                            <span class="kpi-title cinzel-decorative-bold modal-selection" id="kpi-title"></span>
+                            <span class="kpi-subtitle cinzel-decorative-bold modal-selection hidden" id="kpi-subtitle-bloqueio"></span>
+                            <span class="kpi-subtitle cinzel-decorative-bold modal-selection hidden" id="kpi-subtitle-consistencia"></span>
+                        </div>
+
+                        <div class="grafico-bloqueios-container">
+                            <canvas class="grafico-bloqueios-canvas" id="grafico-bloqueios-canvas"></canvas>
                         </div>
                     </div>
                     <div class="button-container">
@@ -44,10 +51,40 @@ export async function paginaEspada(main) {
         </div>
     `;
 
+    mostrarResumoNaTela(main)
+
     const abrirModalBtn = main.querySelector('#chamar-modal-button');
     const modalBase = main.querySelector('#modal-base')
 
     abrirModalBtn.addEventListener('click', () => {
         mostrarModalEstado(modalBase);
     })
+
+    criarGraficoBloqueios(main)
 }
+
+        // let ultimoEstado = resposta[0].state;
+        // let ultimoBloqueio = resposta[0].blocker;
+        // const consistencia = resposta[0].consistencia;
+
+        // if (ultimoEstado === "focado") {
+        //     ultimoEstado = "Focado";
+        // } else if (ultimoEstado === "relaxado") {
+        //     ultimoEstado = "Relaxado";
+        // } else if (ultimoEstado === "distraido") {
+        //     ultimoEstado = "Distraído";
+        // } else if (ultimoEstado === "ansioso") {
+        //     ultimoEstado = "Ansioso";
+        // }
+
+        // if (ultimoBloqueio === "medo") {
+        //     ultimoBloqueio = "Medo"
+        // } else if (ultimoBloqueio === "inseguranca") {
+        //     ultimoBloqueio = "Insegurança"
+        // } else if (ultimoBloqueio === "preguica") {
+        //     ultimoBloqueio = "Preguiça"
+        // } else if (ultimoBloqueio === "distracao") {
+        //     ultimoBloqueio = "Distração"
+        // } else if (ultimoBloqueio === "luxuria") {
+        //     ultimoBloqueio = "Luxúria"
+        // }

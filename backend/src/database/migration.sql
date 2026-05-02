@@ -20,34 +20,27 @@ CREATE TABLE streaks (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE demons (
+CREATE TABLE demon_logs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    name VARCHAR(100) NOT NULL,
-    difficulty INT DEFAULT 1,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    demon VARCHAR(50),
+    log_date DATE,
+    status ENUM('resisted', 'failed', 'skipped') NOT NULL,
+    xp INT,
+
+    UNIQUE KEY unique_log (user_id, demon, log_date),
 
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
-
-CREATE TABLE demon_logs (
-    demon_id INT,
-    log_date DATE,
-    status ENUM('resisted', 'failed') NOT NULL,
-
-    PRIMARY KEY (demon_id, log_date),
-
-    FOREIGN KEY (demon_id) REFERENCES demons(id) ON DELETE CASCADE
 );
 
 CREATE TABLE mental_logs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     log_date DATE,
-    state ENUM('focused', 'distracted', 'anxious'),
+    state ENUM('focused', 'distracted', 'anxious', 'relaxed'),
     blocker ENUM('fear', 'insecurity', 'laziness', 'distraction'),
 
-    UNIQUE (user_id, log_date),
+    UNIQUE KEY unique_log (user_id, log_date),
 
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -74,6 +67,7 @@ CREATE TABLE xp_logs (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- SELECT PARA CALCULAR XP
-
-SELECT SUM(amount) FROM xp_logs WHERE user_id = ?
+SELECT * FROM demon_logs;
+SELECT * FROM mental_logs;
+SELECT * FROM goals;
+SELECT * FROM xp_logs;

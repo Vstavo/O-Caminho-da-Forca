@@ -32,6 +32,9 @@ export async function marcarEstado(estado, bloqueio) {
     let blockerNull = null
 
     if (bloqueio === "NULL") {bloqueio = blockerNull}
+    if (estado !== "focado" && estado !== "distraido" && estado !== "ansioso" && estado !== "relaxado" ) {
+        return null
+    }
 
     try {
         const resposta = await fetch('http://localhost:8080/mental/marcar', {

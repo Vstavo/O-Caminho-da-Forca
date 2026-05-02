@@ -258,3 +258,17 @@
 .dash-espada .modal-base .modal-container .modal-button:hover {
     box-shadow: rgba(37, 94, 150, 0.25) 0px 54px 55px, rgba(37, 94, 150, 0.12) 0px -12px 30px, rgba(37, 94, 150, 0.12) 0px 4px 6px, rgba(37, 94, 150, 0.17) 0px 12px 13px, rgba(37, 94, 150, 0.09) 0px -3px 5px;
 }
+
+.dash-espada .dashboard-container .grafico-bloqueios-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.dash-espada .dashboard-container .grafico-bloqueio-canvas {
+    width: 100%;
+    height: 300px;
+}

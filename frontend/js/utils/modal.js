@@ -39,17 +39,17 @@ export function mostrarModalDemon(container, demon) {
     })
 
     resistiBtn.addEventListener('click', () => {
-        marcarDemonio(demon.name, "resisted")
+        marcarDemonio(demon.name, "resistiu")
         fecharBtn.click()
     })
 
     naoEnfrenteiBtn.addEventListener('click', () => {
-        marcarDemonio(demon.name, "skipped")
+        marcarDemonio(demon.name, "pulou")
         fecharBtn.click()
     })
 
     cediBtn.addEventListener('click', () => {
-        marcarDemonio(demon.name, "failed")
+        marcarDemonio(demon.name, "falhou")
         fecharBtn.click()
     })
 
@@ -66,7 +66,7 @@ export function mostrarModalEstado(container) {
         <div class="modal-container">
             <div class="modal-block">
                 <div class="modal-close-button-container">
-                    <button id="modal-close-button" class="modal-close-button"><img src="./assets/buttons/cross.png" alt="Fechar"></button>
+                    <button id="modal-close-button" class="modal-close-button"><img src="./assets/buttons/close-red.png" alt="Fechar"></button>
                 </div>
                 <div class="modal-title-container">
                     <h1 class="modal-title cinzel-decorative-black modal-selection">Como está sua mente?</h1>
@@ -74,20 +74,21 @@ export function mostrarModalEstado(container) {
                 <div class="modal-estado-container">
                     <h2 class="modal-estado-title cinzel-decorative-bold modal-selection">Estado:</h2>
                     <select name="estado" class="modal-select cinzel-decorative-regular" id="estado-select">
-                        <option value="focused">Focado</option>
-                        <option value="relaxed">Relaxado</option>
-                        <option value="distracted">Distraído</option>
-                        <option value="anxious">Ansioso</option>
+                        <option value="focado">Focado</option>
+                        <option value="relaxado">Relaxado</option>
+                        <option value="distraido">Distraído</option>
+                        <option value="ansioso">Ansioso</option>
                     </select>
                 </div>
                 <div class="modal-bloqueio-container">
                     <h2 class="modal-bloqueio-title cinzel-decorative-bold modal-selection">Bloqueio mental:</h2>
                     <select name="bloqueio" class="modal-select cinzel-decorative-regular" id="bloqueio-select">
                         <option value="NULL">Sem bloqueios</option>
-                        <option value="fear">Medo</option>
-                        <option value="insecurity">Insegurança</option>
-                        <option value="laziness">Preguiça</option>
-                        <option value="distraction">Distração</option>
+                        <option value="medo">Medo</option>
+                        <option value="inseguranca">Insegurança</option>
+                        <option value="preguica">Preguiça</option>
+                        <option value="distracao">Distração</option>
+                        <option value="luxuria">Luxúria</option>
                     </select>
                 </div>
                 <div class="modal-buttons-container">

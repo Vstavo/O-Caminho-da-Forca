@@ -10,9 +10,9 @@ async function marcarDemonio(req, res) {
     const hoje = new Date().toISOString().slice(0, 10);
 
     const tabelaXp = {
-        resisted: 15,
-        failed: -10,
-        skipped: 0
+        resistiu: 15,
+        falhou: -10,
+        pulou: 0
     }
 
     const novoXp = tabelaXp[status]

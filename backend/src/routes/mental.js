@@ -8,4 +8,8 @@ router.post('/marcar', controlesUsuario.autenticarSessao, function(req, res) {
     controllerMental.marcarEstado(req, res);
 });
 
+router.get('/resumo', controlesUsuario.autenticarSessao, function(req, res) {
+    controllerMental.buscarResumoSemanal(req, res);
+});
+
 module.exports = router

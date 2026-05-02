@@ -24,8 +24,26 @@ function estadoResumoSemanal(userId) {
     return database.executar(instrucaoSQL)
 }
 
+function quantidadeCadaBloqueio(userId) {
+    const instrucaoSQL = `
+        SELECT blocker, COUNT(blocker) as quantidade_blocker FROM mental_logs WHERE user_id = '${userId}' AND blocker IS NOT NULL AND log_date >= CURDATE() - INTERVAL 7 DAY GROUP BY blocker ORDER BY quantidade_blocker DESC;
+    `;
+
+    return database.executar(instrucaoSQL)
+}
+
+function estadoMaisFrequente(userId) {
+    const instrucaoSQL = `
+        SELECT state, COUNT(state) as quantidade_state FROM mental_logs WHERE user_id = '${userId}' AND log_date >= CURDATE() - INTERVAL 7 DAY GROUP BY state ORDER BY quantidade_state DESC, MAX(log_date) DESC;
+    `;
+
+    return database.executar(instrucaoSQL)
+}
+
 module.exports = {
     marcarEstadoMental,
     buscarEstadoMentalHoje,
-    estadoResumoSemanal
+    estadoResumoSemanal,
+    quantidadeCadaBloqueio,
+    estadoMaisFrequente
 };

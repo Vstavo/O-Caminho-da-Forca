@@ -64,6 +64,10 @@ body {
     background: linear-gradient(to bottom, #585757, #020201);
 }
 
+.app-proposito {
+    background: linear-gradient(to bottom, #53344d, #25131b);
+}
+
 #sidebar {
     display: flex;
     flex-direction: column;
@@ -214,6 +218,16 @@ body {
     flex-direction: column;
     gap: 20px;
     background-image: url('../assets/pages/espada/miyamoto-musashi-katana-vagabond-thumb.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.dash-proposito {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-image: url('../assets/pages/proposito/canute-vinland-saga.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     border: none;

@@ -16,6 +16,6 @@ export async function paginaProposito(main) {
     app.className = '';
     app.classList.add('app-proposito');
     main.className = ''
-    main.classList.add('proposito')
+    main.classList.add('dash-proposito')
     main.innerHTML = '';
 }
