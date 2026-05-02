@@ -12,11 +12,15 @@ const host = process.env.APP_HOST;
 
 const rotasUsuario = require('./src/routes/usuarios');
 const rotasGrafico = require('./src/routes/graphics');
-const rotasSistema = require('./src/routes/sistema')
+const rotasStreak = require('./src/routes/streak');
+const rotasDemon = require('./src/routes/demon');
+const rotasMental = require('./src/routes/mental')
 
 app.use('/usuarios', rotasUsuario);
 app.use('/graphics', rotasGrafico);
-app.use('/marcar', rotasSistema)
+app.use('/streak', rotasStreak);
+app.use('/demon', rotasDemon);
+app.use('/mental', rotasMental);
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}! \nPara acessar entre em: http://${host}:${port}`)

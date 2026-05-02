@@ -14,7 +14,7 @@ function marcarDemonio(userId, demon, status, xp, data) {
         ON DUPLICATE KEY UPDATE status = VALUES(status), xp = VALUES(xp)
     `;
 
-    database.executar(instrucaoSQL)
+    return database.executar(instrucaoSQL)
 }
 
 module.exports = {

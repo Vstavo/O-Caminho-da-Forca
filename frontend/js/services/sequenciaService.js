@@ -3,7 +3,7 @@ export async function marcarDia() {
     const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch('http://localhost:8080/marcar/dia', {
+        const response = await fetch('http://localhost:8080/streak/dia', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -27,7 +27,7 @@ export async function buscarStreak() {
     const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch('http://localhost:8080/marcar/streak', {
+        const response = await fetch('http://localhost:8080/streak/buscar', {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
