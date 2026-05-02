@@ -12,6 +12,9 @@ export async function paginaProposito(main) {
     }
 
     console.log('Página carregada');
+    const app = document.getElementById('app');
+    app.className = '';
+    app.classList.add('app-proposito');
     main.className = ''
     main.classList.add('proposito')
     main.innerHTML = '';
