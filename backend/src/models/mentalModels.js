@@ -2,7 +2,7 @@ const database = require('../database/config')
 
 function marcarEstadoMental(userId, data, estado, bloqueio) {
     const instrucaoSQL = `
-        INSERT INTO mental_logs (user_id, log_date, state, blocker) VALUES (${userId}, '${data}', '${estado}', '${bloqueio}')
+        INSERT INTO mental_logs (user_id, log_date, state, blocker) VALUES (${userId}, '${data}', '${estado}', ${bloqueio ? `'${bloqueio}'` : 'NULL'})
         ON DUPLICATE KEY UPDATE state = VALUES(state), blocker = VALUES(blocker)
     `;
 
@@ -18,7 +18,7 @@ function buscarEstadoMentalHoje(userId, data) {
 }
 
 function contarEstados(userId) {
-    
+
 }
 
 module.exports = {

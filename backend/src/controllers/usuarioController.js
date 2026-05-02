@@ -2,8 +2,34 @@ const usuarioModel = require('../models/usuarioModel')
 
 const sessoes = {}
 
+function random() {
+    const numeroAleatorio = Math.random() * 10;
+
+    return numeroAleatorio;
+}
+
 function gerarToken() {
-    return ((Math.random() + 1) * 200.05 / 2)
+
+    const caracteres = {
+        0: "a",
+        1: "B",
+        2: "x",
+        3: "K",
+        4: "Z",
+        5: "c",
+        6: "u",
+        7: "p",
+        8: "q",
+        9: "Q"
+    }
+
+    const num1 = ((random() + 1) * 20.05 / 2)
+    const num2 = ((random() + 1) * 10.05 / 2)
+    const num3 = ((random() + 1) * 1.05 / 2)
+
+    const tokenMontado = `bctmlhd${parseInt(num1)}${caracteres[parseInt(random())]}${caracteres[parseInt(random())]}${parseInt(num2)}${caracteres[parseInt(random())]}${caracteres[parseInt(random())]}${caracteres[parseInt(random())]}${parseInt(num3)}${caracteres[parseInt(random())]}${caracteres[parseInt(random())]}${parseInt(num1)}${parseInt(num3)}${parseInt(num2)}${caracteres[parseInt(random())]}${caracteres[parseInt(random())]}${caracteres[parseInt(random())]}${caracteres[parseInt(random())]}${caracteres[parseInt(random())]}`;
+
+    return tokenMontado
 }
 
 function autenticarUsuario(req, res) {

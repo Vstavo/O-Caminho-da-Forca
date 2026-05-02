@@ -49,7 +49,7 @@ export async function verificarCheckinHoje() {
     const token = localStorage.getItem('token')
 
     try {
-        const response = await fetch(`http://localhost:8080/streak/marcar`, {
+        const response = await fetch(`http://localhost:8080/streak/buscar`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
