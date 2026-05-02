@@ -29,6 +29,10 @@ export async function marcarDemonio(demon, status) {
 export async function marcarEstado(estado, bloqueio) {
     const token = localStorage.getItem('token');
 
+    let blockerNull = null
+
+    if (bloqueio === "NULL") {bloqueio = blockerNull}
+
     try {
         const resposta = await fetch('http://localhost:8080/mental/marcar', {
             method: 'POST',

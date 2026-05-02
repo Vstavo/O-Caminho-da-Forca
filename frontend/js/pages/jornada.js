@@ -20,7 +20,7 @@ export function paginaJornada(main) {
                 <div class="container-mensagem">
                     <h2 class="titulo-mensagem cinzel-decorative-black modal-selection">Siga o SEU One Piece</h2>
                     <p class="corpo-mensagem medievalsharp-regular modal-selection">O <span class="medievalsharp-regular corpo-mensagem-destaque modal-selection">One Piece</span> é a maior motivação para piratas arriscarem suas vidas no mar em busca de aventuras, toda mudança começa com um <span class="medievalsharp-regular corpo-mensagem-destaque modal-selection">motivo para agir</span>, daí vem o nome motivação!</p>
-                    <p class="corpo-mensagem medievalsharp-regular modal-selection">Se você tem um <span class="medievalsharp-regular corpo-mensagem-destaque modal-selection">motivo para seguir em frente</span>, então vá agora e <span class="medievalsharp-regular corpo-mensagem-destaque-red modal-selection">seus demônios</span></p>
+                    <p class="corpo-mensagem medievalsharp-regular modal-selection">Se você tem um <span class="medievalsharp-regular corpo-mensagem-destaque modal-selection">motivo para seguir em frente</span>, então vá agora e enfrente <span class="medievalsharp-regular corpo-mensagem-destaque-red modal-selection">seus demônios</span></p>
                 </div>
 
                 <div class="vertical">

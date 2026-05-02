@@ -17,11 +17,15 @@ function buscarEstadoMentalHoje(userId, data) {
     return database.executar(instrucaoSQL)
 }
 
-function contarEstados(userId) {
-
+function estadoResumoSemanal(userId) {
+    const instrucaoSQL = `
+        SELECT (SELECT state FROM mental_logs WHERE user_id = ${userId} ORDER BY log_date DESC LIMIT 1) as state, (SELECT blocker FROM mental_logs WHERE user_id = ${userId} ORDER BY log_date DESC LIMIT 1) as blocker, (SELECT COUNT(*) FROM mental_logs WHERE user_id = ${userId} AND log_date >= CURDATE() - INTERVAL 7 DAY) as consistencia;
+    `;
+    return database.executar(instrucaoSQL)
 }
 
 module.exports = {
     marcarEstadoMental,
-    buscarEstadoMentalHoje
+    buscarEstadoMentalHoje,
+    estadoResumoSemanal
 };

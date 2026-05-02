@@ -1,11 +1,14 @@
 .dash-eclipse .modal-base {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    position: absolute;
-    width: 85%;
-    height: 100%;
     justify-content: center;
     align-items: center;
     z-index: 99;
+    background-color: rgba(40, 2, 10, 0.7);
 }
 
 .dash-eclipse .modal-base .modal-container {

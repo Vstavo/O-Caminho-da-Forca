@@ -1,4 +1,4 @@
-import { marcarDemonio } from "../services/enviarDadosService.js";
+import { marcarDemonio, marcarEstado } from "../services/enviarDadosService.js";
 
 export function mostrarModalDemon(container, demon) {
     container.innerHTML = '';
@@ -59,4 +59,60 @@ export function mostrarModalDemon(container, demon) {
     })
 }
 
-export function mostrarModal() {}
+export function mostrarModalEstado(container) {
+    container.innerHTML = '';
+    container.classList.remove('hidden')
+    container.innerHTML = `
+        <div class="modal-container">
+            <div class="modal-block">
+                <div class="modal-close-button-container">
+                    <button id="modal-close-button" class="modal-close-button"><img src="./assets/buttons/cross.png" alt="Fechar"></button>
+                </div>
+                <div class="modal-title-container">
+                    <h1 class="modal-title cinzel-decorative-black modal-selection">Como está sua mente?</h1>
+                </div>
+                <div class="modal-estado-container">
+                    <h2 class="modal-estado-title cinzel-decorative-bold modal-selection">Estado:</h2>
+                    <select name="estado" class="modal-select cinzel-decorative-regular" id="estado-select">
+                        <option value="focused">Focado</option>
+                        <option value="relaxed">Relaxado</option>
+                        <option value="distracted">Distraído</option>
+                        <option value="anxious">Ansioso</option>
+                    </select>
+                </div>
+                <div class="modal-bloqueio-container">
+                    <h2 class="modal-bloqueio-title cinzel-decorative-bold modal-selection">Bloqueio mental:</h2>
+                    <select name="bloqueio" class="modal-select cinzel-decorative-regular" id="bloqueio-select">
+                        <option value="NULL">Sem bloqueios</option>
+                        <option value="fear">Medo</option>
+                        <option value="insecurity">Insegurança</option>
+                        <option value="laziness">Preguiça</option>
+                        <option value="distraction">Distração</option>
+                    </select>
+                </div>
+                <div class="modal-buttons-container">
+                    <button class="modal-button confirm medievalsharp-regular" id="confirm_btn">Registrar</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const fecharBtn = container.querySelector('#modal-close-button');
+    const confirmarBtn = container.querySelector('#confirm_btn');
+    const estadoSel = container.querySelector('#estado-select')
+    const bloqueioSel = container.querySelector('#bloqueio-select')
+
+    container.addEventListener('click', (e) => {
+        if (e.target === container) { fecharBtn.click()}
+    })
+
+    confirmarBtn.addEventListener('click', () => {
+        marcarEstado(estadoSel.value, bloqueioSel.value)
+        fecharBtn.click()
+    })
+
+    fecharBtn.addEventListener('click', () => {
+        container.innerHTML = '';
+        container.classList.add('hidden')
+    })
+}

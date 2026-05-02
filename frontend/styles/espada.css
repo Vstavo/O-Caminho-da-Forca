@@ -44,7 +44,217 @@
     color: #daedff;
 }
 
-.dash-espada .modal-selection::selection{
+.dash-espada .modal-selection::selection {
     background-color: #daedff;
     color: #020201;
+}
+
+.dash-espada .modal-selection::-moz-selection {
+    background-color: #daedff;
+    color: #020201;
+}
+
+.dash-espada .corpo .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: 30%;
+    padding: 20px 40px;
+}
+
+.dash-espada .corpo .button-container .chamar-modal-button {
+    color: #daedff;
+    background-color: transparent;
+    border: 2px solid #daedff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    backdrop-filter: blur(5px);
+    box-shadow: rgba(37, 94, 150, 0.35) 0px 5px 15px;
+}
+
+.dash-espada .corpo .button-container .chamar-modal-button:hover {
+    background-color: #daedff;
+    color: #020201;
+}
+
+.dash-espada .modal-base {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dash-espada .modal-base .modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 600px;
+    padding: 20px 40px;
+    border: 2px solid rgb(160, 180, 200);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-color: rgba(32, 32, 32, 0.8);
+    box-shadow: rgba(37, 94, 150, 0.35) 0px 5px 15px;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.dash-espada .modal-container .modal-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.dash-espada .modal-close-button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.dash-espada .modal-close-button-container .modal-close-button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-espada .modal-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(160, 180, 200);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.dash-espada .modal-title-container .modal-title {
+    font-size: 24px;
+    color: #daedff;
+}
+
+.dash-espada .modal-estado-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 40px;
+    width: 100%;
+    border-top: 2px solid rgb(160, 180, 200);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.dash-espada .modal-estado-container .modal-estado-title {
+    font-size: 18px;
+    color: #daedff;
+}
+
+.dash-espada .modal-bloqueio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.dash-espada .modal-bloqueio-container .modal-bloqueio-title {
+    font-size: 18px;
+    color: #daedff;
+}
+
+.dash-espada .modal-base .modal-select {
+    min-width: 200px;
+    padding: 10px;
+    border: 2px solid #daedff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-color: transparent;
+    color: #daedff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+}
+
+.dash-espada .modal-base .modal-select:hover {
+    background-color: #daedff;
+    color: #020201;
+}
+
+.dash-espada .modal-base .modal-container .modal-button {
+    margin-top: 40px;
+    color: #daedff;
+    background-color: transparent;
+    border: 2px solid #daedff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+}
+
+.dash-espada .modal-base .modal-container .modal-button:hover {
+    box-shadow: rgba(37, 94, 150, 0.25) 0px 54px 55px, rgba(37, 94, 150, 0.12) 0px -12px 30px, rgba(37, 94, 150, 0.12) 0px 4px 6px, rgba(37, 94, 150, 0.17) 0px 12px 13px, rgba(37, 94, 150, 0.09) 0px -3px 5px;
 }
