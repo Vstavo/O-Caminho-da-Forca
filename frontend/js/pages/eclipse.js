@@ -1,38 +1,7 @@
 import { verificarCheckinHoje } from "../services/buscarDadosService.js";
-import { mostrarModal } from "../utils/modal.js";
+import { mostrarModalDemon } from "../utils/modal.js";
+import { demonios } from "../utils/demons.js";
 
-const demonios = {
-    distracao: {
-        name: "distracao",
-        titulo: "O Senhor da Distração Infinita",
-        descricao: "Ele se alimenta de atenção fragmentada. Vive nos intervalos, nos segundos “rápidos”, nos toques automáticos. Seu poder não está na força, mas na repetição. Cada vez que você cede, ele se fortalece… silenciosamente.",
-        exemplo: "scroll infinito, vídeos curtos, abrir app sem motivo"
-    },
-    procrastinacao: {
-        name: "procrastinacao",
-        titulo: "O Devorador de Tempo",
-        descricao: "Ele não destrói seu dia de uma vez — ele o dissolve. Transforma tarefas simples em montanhas e minutos em horas perdidas. Quando você percebe, já é tarde… e ele já se alimentou.",
-        exemplo: "evitar tarefas importantes, “depois eu faço”"
-    },
-    prazerVazio: {
-        name: "prazerVazio",
-        titulo: "A Sombra do Prazer Vazio",
-        descricao: "Ela não grita, ela convida. Oferece recompensa sem esforço, prazer sem conquista. Mas toda vez que você aceita, algo em você é drenado — foco, energia, vontade.",
-        exemplo: "pornografia, estímulos fáceis em excesso"
-    },
-    conforto: {
-        name: "conforto",
-        titulo: "O Tirano do Conforto",
-        descricao: "Ele te convence de que ficar onde está é suficiente. Que não vale a pena tentar. Que o esforço é desnecessário. Sob seu domínio, você não falha… mas também nunca evolui.",
-        exemplo: "evitar treinar, estudar, sair da rotina confortável"
-    },
-    dispersao: {
-        name: "dispersao",
-        titulo: "O Fragmentador da Mente",
-        descricao: "Ele não rouba seu tempo — ele o quebra em pedaços. Você começa tudo e termina nada. Pensamentos se sobrepõem, decisões se perdem. No fim, sobra apenas cansaço sem progresso.",
-        exemplo: "abrir várias coisas ao mesmo tempo, não concluir tarefas"
-    }
-}
 
 export async function paginaEclipse(main) {
     const statusCheckinHoje = await verificarCheckinHoje()
@@ -105,27 +74,27 @@ export async function paginaEclipse(main) {
     })
   
     distracaoDiv.addEventListener('click', () => {
-        mostrarModal(modalBase, demonios.distracao)
+        mostrarModalDemon(modalBase, demonios.distracao)
     })
     
     
     procrastinacaoDiv.addEventListener('click', () => {
-        mostrarModal(modalBase, demonios.procrastinacao)
+        mostrarModalDemon(modalBase, demonios.procrastinacao)
     })
     
     
     prazerVazioDiv.addEventListener('click', () => {
-        mostrarModal(modalBase, demonios.prazerVazio)
+        mostrarModalDemon(modalBase, demonios.prazerVazio)
     })
     
     
     confortoDiv.addEventListener('click', () => {
-        mostrarModal(modalBase, demonios.conforto)
+        mostrarModalDemon(modalBase, demonios.conforto)
     })
     
     
     dispersaoDiv.addEventListener('click', () => {
-        mostrarModal(modalBase, demonios.dispersao)
+        mostrarModalDemon(modalBase, demonios.dispersao)
     })
 
     

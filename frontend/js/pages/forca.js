@@ -4,7 +4,6 @@ import { criarBarraProgesso } from "../utils/graphicModels.js";
 import { paginaJornada } from "./jornada.js";
 
 export async function paginaForca(main) {
-    console.log('Página carregada');
     const app = document.getElementById('app');
     app.className = '';
     app.classList.add('app-geral');

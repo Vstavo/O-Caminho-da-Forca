@@ -1,6 +1,6 @@
 import { marcarDemonio } from "../services/enviarDadosService.js";
 
-export async function mostrarModal(container, demon) {
+export function mostrarModalDemon(container, demon) {
     container.innerHTML = '';
     container.classList.remove('hidden')
     container.innerHTML = `
@@ -18,7 +18,7 @@ export async function mostrarModal(container, demon) {
                 </div>
                 <div class="modal-exemplo-container">
                     <h2 class="modal-exemplo-title cinzel-decorative-bold modal-selection">Exemplo:</h2>
-                    <p class="modal-exemplo-paragrafo medievalsharp-regular modal-selection">${demon.exemplo}</p>
+                    <p class="modal-exemplo-paragrafo medievalsharp-regular corpo-mensagem-destaque-red modal-selection">${demon.exemplo}</p>
                 </div>
                 <div class="modal-buttons-container">
                     <button class="modal-button resisti medievalsharp-regular" id="resisti_btn">Resisti</button>
@@ -58,3 +58,5 @@ export async function mostrarModal(container, demon) {
         container.classList.add('hidden')
     })
 }
+
+export function mostrarModal() {}

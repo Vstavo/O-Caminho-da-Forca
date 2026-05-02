@@ -1,0 +1,50 @@
+.dash-espada .corpo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.dash-espada .corpo .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 70%;
+    padding: 20px 40px;
+    border: 2px solid rgb(160, 180, 200);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-color: rgba(32, 32, 32, 0.3);
+    box-shadow: rgba(37, 94, 150, 0.35) 0px 5px 15px;
+    backdrop-filter: blur(5px);
+}
+
+.dash-espada .corpo .dashboard-container .kpi-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.dash-espada .corpo .dashboard-container .kpi-container .kpi-title {
+    font-size: 24px;
+    color: #daedff;
+}
+
+.dash-espada .corpo .dashboard-container .kpi-container .kpi-subtitle {
+    font-size: 18px;
+    color: #daedff;
+}
+
+.dash-espada .modal-selection::selection{
+    background-color: #daedff;
+    color: #020201;
+}

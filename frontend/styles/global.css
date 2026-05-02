@@ -61,7 +61,7 @@ body {
 }
 
 .app-espada {
-    background: linear-gradient(to bottom, #ffffff, #0a0a0a);
+    background: linear-gradient(to bottom, #585757, #020201);
 }
 
 #sidebar {
@@ -213,7 +213,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-image: url('../assets/pages/espada/vagabong-wpp.jpg');
+    background-image: url('../assets/pages/espada/miyamoto-musashi-katana-vagabond-thumb.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     border: none;
@@ -274,9 +274,9 @@ body {
     background-image: url('../assets/pages/forca/Message-modal.png');
     background-position: center;
     background-size: 100% 100%;
-    min-width: 300px;
-    max-width: 600px;
-    min-height: 150px;
+    min-width: 600px;
+    max-width: 900px;
+    min-height: 300px;
     padding: 40px;
 }
 
@@ -294,18 +294,20 @@ body {
 }
 
 .corpo-mensagem-destaque {
-    font-size: 20px;
     color: rgb(192, 146, 30);
     text-align: center;
-    margin-top: 20px;
     font-weight: bold;
 }
 
 .corpo-mensagem-destaque-red {
-    font-size: 20px;
     color: #dd0836;
     text-align: center;
-    margin-top: 20px;
+    font-weight: bold;
+}
+
+.corpo-mensagem-destaque-blue {
+    color: #53b8e7;
+    text-align: center;
     font-weight: bold;
 }
 
@@ -344,5 +346,37 @@ body {
     flex-direction: column;
     align-items: center;
     width: 50%;
+    height: 100%;
+}
+
+.direita-setenta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+}
+
+.esquerda-trinta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+}
+
+.esquerda-setenta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+}
+
+.direita-trinta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
     height: 100%;
 }

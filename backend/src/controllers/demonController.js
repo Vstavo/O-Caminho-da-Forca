@@ -1,4 +1,5 @@
 const demonModels = require('../models/demonModels')
+const sistemaModels = require('../models/sistemaModels')
 
 async function marcarDemonio(req, res) {
     const userId = req.usuario.userId;
@@ -30,7 +31,7 @@ async function marcarDemonio(req, res) {
         await demonModels.marcarDemonio(userId, demon, status, novoXp, hoje);
 
         if (xpFinal !== 0) {
-            await demonModels.adicionarXp(userId, xpFinal, 'demon', hoje)
+            await sistemaModels.adicionarXp(userId, xpFinal, 'demon', hoje)
         }
 
         res.status(200).json({ demon, status, xp: novoXp })
