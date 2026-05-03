@@ -1,4 +1,6 @@
+import { buscarResumoSemanal } from "../services/buscarDadosService.js";
 import { marcarDemonio, marcarEstado } from "../services/enviarDadosService.js";
+import { atualizarGraficoBloqueios } from "./graphicModels.js";
 
 export function mostrarModalDemon(container, demon) {
     container.innerHTML = '';
@@ -59,7 +61,7 @@ export function mostrarModalDemon(container, demon) {
     })
 }
 
-export function mostrarModalEstado(container) {
+export function mostrarModalEstado(container, main) {
     container.innerHTML = '';
     container.classList.remove('hidden')
     container.innerHTML = `
@@ -110,6 +112,10 @@ export function mostrarModalEstado(container) {
     confirmarBtn.addEventListener('click', () => {
         marcarEstado(estadoSel.value, bloqueioSel.value)
         fecharBtn.click()
+        buscarResumoSemanal()
+        setTimeout(() => {
+            atualizarGraficoBloqueios(main)
+        }, 500)
     })
 
     fecharBtn.addEventListener('click', () => {

@@ -85,7 +85,8 @@ export async function buscarResumoSemanal() {
         const resumoSemanal = {
             estadoMaisfrequente : data.state ? data.state : null,
             piorBloqueio : data.piorBloqueio ? data.piorBloqueio : null,
-            bloqueios : data.bloqueios
+            bloqueios : data.bloqueios,
+            conclusao: data.conclusao
         }
 
         return resumoSemanal

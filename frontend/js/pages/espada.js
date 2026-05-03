@@ -25,17 +25,23 @@ export async function paginaEspada(main) {
     main.innerHTML = `
         <div class="modal-base hidden" id="modal-base"></div>
         <div class="conteudo-horizontal">
-            <div class="esquerda-setenta">
+            <div class="esquerda-sessenta">
                 <div class="corpo">
                     <div class="dashboard-container">
                         <div class="kpi-container">
                             <span class="kpi-title cinzel-decorative-bold modal-selection" id="kpi-title"></span>
                             <span class="kpi-subtitle cinzel-decorative-bold modal-selection hidden" id="kpi-subtitle-bloqueio"></span>
-                            <span class="kpi-subtitle cinzel-decorative-bold modal-selection hidden" id="kpi-subtitle-consistencia"></span>
                         </div>
-
-                        <div class="grafico-bloqueios-container">
-                            <canvas class="grafico-bloqueios-canvas" id="grafico-bloqueios-canvas"></canvas>
+                        <div class="horizontal">
+                            <div class="grafico-bloqueios-container">
+                                <span class="grafico-title cinzel-decorative-regular modal-selection" id="grafico-title">Bloqueios da semana</span>
+                                <div class="grafico-bloqueios-moldure">
+                                    <canvas class="grafico-bloqueios-canvas" id="grafico-bloqueios-canvas"></canvas>
+                                </div>
+                            </div>
+                            <div class="conclusion-container">
+                                <span class="conclusion-message cinzel-decorative-bold modal-selection" id="conclusion-message">Bloqueios da semana</span>
+                            </div>
                         </div>
                     </div>
                     <div class="button-container">
@@ -43,7 +49,7 @@ export async function paginaEspada(main) {
                     </div>
                 </div>
             </div>
-            <div class="direita-trinta">
+            <div class="direita-quarenta">
                 <div class="corpo">
             
                 </div>
@@ -57,7 +63,7 @@ export async function paginaEspada(main) {
     const modalBase = main.querySelector('#modal-base')
 
     abrirModalBtn.addEventListener('click', () => {
-        mostrarModalEstado(modalBase);
+        mostrarModalEstado(modalBase, main);
     })
 
     criarGraficoBloqueios(main)

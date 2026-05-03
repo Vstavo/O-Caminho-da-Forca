@@ -80,8 +80,54 @@ async function buscarResumoSemanal(req, res) {
             };
         };
 
+        const conclusao = {
+            focado: "Você está no controle.",
+            relaxado: "Relaxar não significa se conformar, continue em frente!",
+            ansioso: {
+                medo: "Você está antecipando riscos e evitando agir. Sua mente está tentando te proteger, mas está te paralisando.",
+                
+                inseguranca: "Você está duvidando de si antes mesmo de tentar. A batalha está sendo perdida na sua própria cabeça.",
+                
+                preguica: "Sua ansiedade está drenando sua energia, e o conforto virou uma fuga silenciosa.",
+                
+                distracao: "Você está sobrecarregado e fugindo do foco. Sua mente prefere escapar do que enfrentar.",
+                
+                luxuria: "Você está usando prazer imediato como anestesia para o desconforto interno."
+            },
+            distraido: {
+                medo: "Você evita focar porque sabe o que precisa ser feito. A distração virou um escudo contra o desconforto.",
+                
+                inseguranca: "Você se dispersa porque não confia na própria capacidade de executar. Isso fragmenta sua ação.",
+                
+                preguica: "Você está escolhendo o caminho fácil repetidamente, e isso está diluindo seu progresso.",
+                
+                distracao: "Sua atenção está completamente fragmentada. Você está sendo controlado pelo ambiente, não por intenção.",
+                
+                luxuria: "Você está trocando construção por estímulo rápido. Cada distração está roubando sua consistência."
+            }
+        }
 
-        res.status(200).json({ state: estadoMaisFrequente, piorBloqueio: piorBloqueio, bloqueios })
+        const acoes = {
+            medo: "Aja mesmo com medo.",
+            inseguranca: "Confie mais na execução do que no pensamento.",
+            preguica: "Comece pequeno, mas comece.",
+            distracao: "Escolha uma única tarefa agora.",
+            luxuria: "Troque prazer imediato por progresso."
+        };
+
+        const acao = acoes[piorBloqueio]
+        const estado = conclusao[estadoMaisFrequente]
+        let mensagemEstado
+
+        if (typeof estado === 'string') {
+            mensagemEstado = estado
+        } else if (piorBloqueio && estado[piorBloqueio]) {
+            mensagemEstado = estado[piorBloqueio]
+        } else {
+            mensagemEstado = "Observe seus padrões e retome o controle."
+        }
+
+        res.status(200).json({ state: estadoMaisFrequente, conclusao: mensagemEstado, acao: acao, piorBloqueio: piorBloqueio, bloqueios })
 
     } catch(erro) {
         res.status(500).json({ erro: erro.sqlMessage })
