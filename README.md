@@ -9,5 +9,5 @@
   4. `cd frontend/`
   5. `npm install -y`
 - Inicie o servidor frontend e backend
-  1. `npm start`
+  1. `npm start` rode o comando nas pastas `backend/` e `frontend/`
 ***
