@@ -277,7 +277,7 @@
 .dash-espada .dashboard-container .grafico-bloqueios-moldure{
     position: relative;
     width: 100% !important;
-    height: 80% !important;
+    height: 75% !important;
     border: 2px solid rgb(160, 180, 200);
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -312,5 +312,14 @@
     font-size: 18px;
     color: #daedff;
     text-shadow: rgb(37, 94, 150) 0px 5px 15px;
-    
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 2px rgb(160, 180, 200);
+}
+
+.dash-espada .dashboard-container .conclusion-container .conclusion-action {
+    font-size: 18px;
+    color: #daedff;
+    text-shadow: rgb(37, 94, 150) 0px 5px 15px;
+    padding-top: 10px;
 }

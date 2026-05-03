@@ -115,17 +115,17 @@ async function buscarResumoSemanal(req, res) {
             luxuria: "Troque prazer imediato por progresso."
         };
 
-        const acao = acoes[piorBloqueio]
-        const estado = conclusao[estadoMaisFrequente]
-        let mensagemEstado
+        const acao = piorBloqueio ? acoes[piorBloqueio] : null;
+        const estado = conclusao[estadoMaisFrequente];
+        let mensagemEstado;
 
         if (typeof estado === 'string') {
-            mensagemEstado = estado
+            mensagemEstado = estado;
         } else if (piorBloqueio && estado[piorBloqueio]) {
-            mensagemEstado = estado[piorBloqueio]
+            mensagemEstado = estado[piorBloqueio];
         } else {
-            mensagemEstado = "Observe seus padrões e retome o controle."
-        }
+            mensagemEstado = "Observe seus padrões e retome o controle.";
+        };
 
         res.status(200).json({ state: estadoMaisFrequente, conclusao: mensagemEstado, acao: acao, piorBloqueio: piorBloqueio, bloqueios })
 

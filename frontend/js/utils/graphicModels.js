@@ -120,7 +120,7 @@ export async function criarGraficoBloqueios(main) {
     myChart = new Chart(ctx, config)
 }
 
-export async function atualizarGraficoBloqueios(main) {
+export async function atualizarGraficoBloqueios() {
     if (!myChart) return;
 
     const apiData = await buscarResumoSemanal();

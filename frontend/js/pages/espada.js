@@ -41,6 +41,7 @@ export async function paginaEspada(main) {
                             </div>
                             <div class="conclusion-container">
                                 <span class="conclusion-message cinzel-decorative-bold modal-selection" id="conclusion-message">Bloqueios da semana</span>
+                                <span class="conclusion-action cinzel-decorative-bold modal-selection" id="conclusion-action">Bloqueios da semana</span>
                             </div>
                         </div>
                     </div>
