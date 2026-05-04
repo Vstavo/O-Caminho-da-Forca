@@ -86,12 +86,12 @@ async function buscarGoals(req, res) {
         const goalsAtivos = await goalModels.buscarGoalAtivo(userId);
 
         if (goalsAtivos.length <= 0) {
-            return res.status(404).json("Nenhum objetivo ativo")
+            return res.status(200).json({ mensagem: "Nenhum objetivo ativo", temAtivo: false})
         }
 
         const goalAtivo = goalsAtivos[0]
 
-        res.status(200).json({ goalAtivo })
+        res.status(200).json({ mensagem: "Há um objetivo ativo", temAtivo: true, goalAtivo })
     } catch (error) {
         console.log("Erro: ", error)
         res.status(500).json({ erro: error.sqlMessage })
