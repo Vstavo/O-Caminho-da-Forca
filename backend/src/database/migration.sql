@@ -66,7 +66,7 @@ CREATE TABLE goals_metrics (
     progress_points INT DEFAULT 1,
     progress INT DEFAULT 0,
 
-    status ENUM('active', 'completed') DEFAULT 'active',
+    status ENUM('ativo', 'completo') DEFAULT 'ativo',
 
     FOREIGN KEY (goal_id) REFERENCES goals(id) ON DELETE CASCADE
 );
