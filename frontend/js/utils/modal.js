@@ -115,6 +115,7 @@ export function mostrarModalEstado(container, main) {
         buscarResumoSemanal()
         setTimeout(() => {
             atualizarGraficoBloqueios(main)
+            buscarResumoSemanal()
         }, 500)
     })
 

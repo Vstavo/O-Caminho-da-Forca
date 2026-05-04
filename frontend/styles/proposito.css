@@ -1,0 +1,204 @@
+.dash-proposito .modal-goal-proposito {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: 80vh;
+}
+
+.dash-proposito .modal-goal-proposito::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/pages/proposito/moldura-pergaminho-nordico.png');
+    z-index: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 80%;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-cima {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 50%;
+    margin-top: 20px;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 50%;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    height: 40%;
+    background-image: url('../assets/pages/proposito/ink-bowl.png');
+    z-index: 50;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-cima .modal-title-placeholder {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 40px;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-cima .modal-title {
+    font-size: 36px;
+    color: #0D0D0D;
+    text-align: center;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-cima .modal-description-placeholder {
+    width: 100%;
+    padding: 0 20px;
+    min-height: 20px;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-cima .modal-description {
+    font-size: 24px;
+    color: #0D0D0D;
+    text-align: center;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar-moldure {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #0000004d;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+/* .dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar-moldure::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+} */
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar-moldure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #0D0D0D;
+    border-radius: 5px 10px 10px 5px;
+    -webkit-border-radius: 5px 10px 10px 5px;
+    -moz-border-radius: 5px 10px 10px 5px;
+    -ms-border-radius: 5px 10px 10px 5px;
+    -o-border-radius: 5px 10px 10px 5px;
+    contain: layout;
+    transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+    -moz-transition: all 0.4s ease-in;
+    -ms-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .container-check-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .container-check-button .check-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 75px;
+    background-color: transparent;
+    border: none;
+    color: #deedffbd;
+    text-shadow: 1px 1px 2px #00000090;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .container-check-button .check-button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/buttons/wood-button.png');
+    background-size: 100% 100%;
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    z-index: -1;
+}
+
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .container-check-button .check-button:active {
+    transform: scale(0.98);
+    -webkit-transform: scale(0.98);
+    -moz-transform: scale(0.98);
+    -ms-transform: scale(0.98);
+    -o-transform: scale(0.98);
+    filter: brightness(0.85);
+    -webkit-filter: brightness(0.85);
+}

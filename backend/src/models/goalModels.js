@@ -58,11 +58,11 @@ async function criarGoal(userId, titulo, descricao, totalProgresso) {
 };
 
 async function checkinGoal(goalId) {
-    const conexao = database.pool.getConnection();
+    const conexao = await database.pool.getConnection();
 
     try {
 
-        await conexao.beginTransaction()
+        await conexao.beginTransaction()    
 
         const [checkinResult] = await conexao.query(
             `UPDATE goals_metrics SET progress = progress + progress_points WHERE goal_id = ?`,
@@ -70,7 +70,7 @@ async function checkinGoal(goalId) {
         );
 
         const [updateDateLog] = await conexao.query(
-            `UPDATE goals SET last_update = CURDATE() WHERE goal_id = ? AND last_update < CURDATE()`,
+            `UPDATE goals SET last_update = CURDATE() WHERE id = ? AND last_update < CURDATE()`,
             [goalId]
         )
 
@@ -82,7 +82,7 @@ async function checkinGoal(goalId) {
         await conexao.rollback()
         throw erro
     } finally {
-        conexao.release
+        conexao.release()
     };
 };
 
