@@ -94,13 +94,39 @@ insert into mental_logs (user_id, state, blocker, log_date) values ( 1, 'ansioso
 insert into mental_logs (user_id, state, blocker, log_date) values ( 1, 'ansioso', 'luxuria', '2026-04-28');
 insert into mental_logs (user_id, state, blocker, log_date) values ( 1, 'ansioso', 'preguica', '2026-04-29');
 insert into mental_logs (user_id, state, blocker, log_date) values ( 1, 'distraido', 'distracao', '2026-04-30');
+
 insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 1, 1, '2026-04-24');
-insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 2, 2, '2026-04-25');
-insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 3, 3, '2026-04-26');
-insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 4, 4, '2026-04-27');
-insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 5, 5, '2026-04-28');
-insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 6, 6, '2026-04-29');
-insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 7, 7, '2026-04-30');
+insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 2, 2, '2026-04-25')
+ON DUPLICATE KEY UPDATE
+	current_streak = VALUES(current_streak),
+	best_streak = VALUES(best_streak),
+	last_checkin_date = VALUES(last_checkin_date);
+insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 3, 3, '2026-04-26')
+ON DUPLICATE KEY UPDATE
+	current_streak = VALUES(current_streak),
+	best_streak = VALUES(best_streak),
+	last_checkin_date = VALUES(last_checkin_date);
+insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 4, 4, '2026-04-27')
+ON DUPLICATE KEY UPDATE
+	current_streak = VALUES(current_streak),
+	best_streak = VALUES(best_streak),
+	last_checkin_date = VALUES(last_checkin_date);
+insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 5, 5, '2026-04-28')
+ON DUPLICATE KEY UPDATE
+	current_streak = VALUES(current_streak),
+	best_streak = VALUES(best_streak),
+	last_checkin_date = VALUES(last_checkin_date);
+insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 6, 6, '2026-04-29')
+ON DUPLICATE KEY UPDATE
+	current_streak = VALUES(current_streak),
+	best_streak = VALUES(best_streak),
+	last_checkin_date = VALUES(last_checkin_date);
+insert into streaks (user_id, current_streak, best_streak, last_checkin_date) values ( 1, 7, 7, '2026-04-30')
+ON DUPLICATE KEY UPDATE
+	current_streak = VALUES(current_streak),
+	best_streak = VALUES(best_streak),
+	last_checkin_date = VALUES(last_checkin_date);
+
 insert into xp_logs (user_id, amount, source) values ( 1, 10, 'mental');
 insert into xp_logs (user_id, amount, source) values ( 1, 10, 'mental');
 insert into xp_logs (user_id, amount, source) values ( 1, 10, 'mental');
