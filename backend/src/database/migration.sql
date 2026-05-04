@@ -52,11 +52,23 @@ CREATE TABLE goals (
     user_id INT,
     title VARCHAR(150),
     description TEXT,
-    progress INT DEFAULT 0,
-    status ENUM('ativo', 'completo') DEFAULT 'ativo',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_update DATE,
 
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE goals_metrics (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    goal_id INT UNIQUE,
+
+    total_progress INT DEFAULT 30,
+    progress_points INT DEFAULT 1,
+    progress INT DEFAULT 0,
+
+    status ENUM('active', 'completed') DEFAULT 'active',
+
+    FOREIGN KEY (goal_id) REFERENCES goals(id) ON DELETE CASCADE
 );
 
 CREATE TABLE xp_logs (

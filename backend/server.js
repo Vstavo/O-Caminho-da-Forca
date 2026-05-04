@@ -14,13 +14,15 @@ const rotasUsuario = require('./src/routes/usuarios');
 const rotasGrafico = require('./src/routes/graphics');
 const rotasStreak = require('./src/routes/streak');
 const rotasDemon = require('./src/routes/demon');
-const rotasMental = require('./src/routes/mental')
+const rotasMental = require('./src/routes/mental');
+const rotasGoal = require('./src/routes/goals');
 
 app.use('/usuarios', rotasUsuario);
 app.use('/graphics', rotasGrafico);
 app.use('/streak', rotasStreak);
 app.use('/demon', rotasDemon);
 app.use('/mental', rotasMental);
+app.use('/goal', rotasGoal);
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}! \nPara acessar entre em: http://${host}:${port}`)

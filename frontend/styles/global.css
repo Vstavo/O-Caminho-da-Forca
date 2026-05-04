@@ -294,6 +294,15 @@ body {
     padding: 40px;
 }
 
+.container-mensagem-limited-width {
+    background-image: url('../assets/pages/forca/Message-modal.png');
+    background-position: center;
+    background-size: 100% 100%;
+    width: 600px;
+    height: 300px;
+    padding: 40px;
+}
+
 .titulo-mensagem {
     font-size: 24px;
     color: goldenrod;
@@ -329,6 +338,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.vertical-cem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .horizontal{

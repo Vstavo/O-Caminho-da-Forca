@@ -14,7 +14,6 @@ export async function paginaEspada(main) {
         return
     }
 
-    console.log('Página carregada');
     const app = document.getElementById('app');
     app.className = '';
     app.classList.add('app-espada');

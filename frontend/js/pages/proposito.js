@@ -1,4 +1,5 @@
 import { verificarCheckinHoje } from "../services/buscarDadosService.js";
+import { mensagemPrimeiraVez } from "../utils/firstTimeMessage.js";
 
 export async function paginaProposito(main) {
     const statusCheckinHoje = await verificarCheckinHoje()
@@ -18,4 +19,6 @@ export async function paginaProposito(main) {
     main.className = ''
     main.classList.add('dash-proposito')
     main.innerHTML = '';
+
+    main.innerHTML = mensagemPrimeiraVez()
 }
