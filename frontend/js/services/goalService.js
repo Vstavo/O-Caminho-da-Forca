@@ -48,12 +48,17 @@ export async function checkinGoal() {
 
         const data = await resposta.json()
         
+        if(data.feitoHoje === true) {
+            console.error("Checkin já feito hoje", resposta.text());
+            return false;
+        }
+        
         if(!resposta.ok) {
-            console.error("Falha ao marcar goal como conluido", resposta.text())
-            return false
+            console.error("Falha ao marcar goal como conluido", resposta.text());
+            return false;
         };
 
-        return data.xp
+        return { feitoHoje: data.feitoHoje, xp: data.xp}
 
     } catch (error) {
         console.error("Erro ao marcar goal como concluido: ", error)

@@ -171,7 +171,6 @@
 }
 
 .dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar {
-    width: 0%;
     height: 100%;
     background-color: goldenrod;
     border-radius: 5px 10px 10px 5px;
@@ -180,11 +179,11 @@
     -ms-border-radius: 5px 10px 10px 5px;
     -o-border-radius: 5px 10px 10px 5px;
     contain: layout;
-    transition: all 0.4s ease-in;
-    -webkit-transition: all 0.4s ease-in;
-    -moz-transition: all 0.4s ease-in;
-    -ms-transition: all 0.4s ease-in;
-    -o-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
 }
 
 .dash-proposito .modal-goal-proposito .modal-content .modal-baixo .container-check-button {

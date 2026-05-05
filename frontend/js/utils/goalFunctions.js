@@ -111,6 +111,8 @@ export async function carregarPagina(main) {
         return;
     }
 
+    sessionStorage.removeItem("porcentagem_progresso");
+
     main.innerHTML = `
         <div class="conteudo">
                 <div class="centralizar">
@@ -142,36 +144,48 @@ export async function carregarPagina(main) {
 
     const progressBar = main.querySelector('#goal-progress-bar');
     const marcarBtn = main.querySelector('#check-button');
-    const porcentagemProgresso = parseInt(goalAtivo.progresso / goalAtivo.necessario * 100);
+    
+    async function atualizarProgressBar() {
+        const goalDoProgresso = await buscarGoalsAtivos()
+        const porcentagemProgresso = parseInt(goalDoProgresso.progresso / goalDoProgresso.necessario * 100);
+        let ultimaPorcentagem = JSON.parse(sessionStorage.getItem("porcentagem_progresso")) || 0
 
-    function atualizarProgressBar() {
-        progressBar.style.width = `${porcentagemProgresso}%`;
+        progressBar.style.width = `${ultimaPorcentagem}`;
+
+        setTimeout(() => {
+            progressBar.style.width = `${porcentagemProgresso}%`;
+        }, 200)
+        
+        if (goalAtivo.progresso === 100) {
+            progressBar.style.borderRadius = '5px';
+        };
     };
 
 
-    if (goalAtivo.progresso === 100) {
-        progressBar.style.borderRadius = '5px';
-    };
 
     marcarBtn.addEventListener('click', async () => {
         const checkin = await checkinGoal();
 
-        if(checkin === false) {
+        if(checkin === false || checkin.feitoHoje === true) {
             gerarToast("advise", `O dia já foi concluido`);
-            return
+            return;
         };
 
-        if (checkin !== false && checkin !== null) {
+        if (checkin.xp !== false && checkin.xp !== null) {
 
             setTimeout(() => {
                 if (checkin.completo === true) {
-                    gerarToast("good", `Objetivo concluido +${checkin} XP`);
+                    gerarToast("good", `Objetivo concluido +${checkin.xp} XP`);
+                    setTimeout(() => {
+                        carregarPagina(main)
+                    }, 500)
                 } else {
-                    gerarToast("good", `Dia concluido +${checkin} XP`);
+                    gerarToast("good", `Dia concluido +${checkin.xp} XP`);
+                    sessionStorage.setItem("porcentagem_progresso", JSON.stringify(parseInt(goalAtivo.progresso / goalAtivo.necessario * 100) + 1))
                 };
-                carregarPagina(main)
             }, 500);
-
+            
+            atualizarProgressBar()
         };
 
     });
