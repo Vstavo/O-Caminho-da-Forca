@@ -43,7 +43,7 @@ async function checkinGoal(req, res) {
 
         const ultimoCheckin = verificarGoalExistente[0].last_update;
 
-        if (ultimoCheckin) {
+        if (ultimoCheckin !== false && ultimoCheckin !== null) {
 
             const ultimo = new Date(ultimoCheckin);
             ultimo.setHours(0, 0, 0, 0);
@@ -52,7 +52,7 @@ async function checkinGoal(req, res) {
             const diffDias = diffTempo / (1000 * 60 * 60 * 24);
             
             if (diffDias === 0) {
-                return res.status(400).json("Checkin já feito hoje");
+                return res.status(400).json({ mensagem: "Checkin já feito hoje", feitoHoje: true});
             }
         }
 
@@ -68,11 +68,11 @@ async function checkinGoal(req, res) {
         if (goalNovo[0].progress >= goalNovo[0].total_progress) {
             await goalModels.completarGoal(goalId)
             await sistemaModels.adicionarXp(userId, 50, 'goal_completo', hoje)
-            return res.status(200).json({ mensagem: "Objetivo completo", xp: 50, completo: true})
+            return res.status(200).json({ mensagem: "Objetivo completo", xp: 50, completo: true, feitoHoje: false})
         }
         
         await sistemaModels.adicionarXp(userId, 15, 'goal_checkin', hoje)
-        return res.status(200).json({ mensagem: "Objetivo atualizado com sucesso", xp: 15, completo: false})
+        return res.status(200).json({ mensagem: "Objetivo atualizado com sucesso", xp: 15, completo: false, feitoHoje: false})
     } catch (error) {
         console.log("Erro: ", error)
         res.status(500).json({ erro: error.sqlMessage})
