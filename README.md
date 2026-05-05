@@ -1,5 +1,5 @@
 # O CAMINHO DA FORÇA
-***
+
 ## Introdução
 "O CAMINHO DA FORÇA" é um projeto acadêmico desenvolvido com o objetivo de integrar a nota da matéria de Pesquisa e Inovação, como sendo o Projeto Induvidual, desenvolvido pelo aluno Gustavo Vieira Santana, estudante da SPTech (São Paulo Tech School) no primeiro semestre de ADS (Análise e Desenvolvimento de Sistemas) turma B.
 ***
