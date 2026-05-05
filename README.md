@@ -6,7 +6,7 @@
 
 ## Sobre o projeto
 
-O projeto é tem o objetivo de introduzir o usuário ao tema "Força" e ajudá-lo a enfrentar os maiores vícios da modernidade, como o vício em redes sociais, jogos e pornografia, insigar o usuário a refletir sobre seu estado mental e bloqueios, bem como entregar diagnósticos baseados em suas respostas, e entregar uma ação simples para que o usuário possa se libertar desses vícios e alcançar a força interior, mostrando ao final que esta força vêm de ter um propósito.
+O projeto é tem o objetivo de introduzir o usuário ao tema "Força" e ajudá-lo a enfrentar os maiores vícios da modernidade, como o vício em redes sociais, jogos e pornografia, instigar o usuário a refletir sobre seu estado mental e bloqueios, bem como entregar diagnósticos baseados em suas respostas, e entregar uma ação simples para que o usuário possa se libertar desses vícios e alcançar a força interior, mostrando ao final que esta força vêm de ter um propósito.
 ***
 
 ## Features
