@@ -48,6 +48,10 @@ export async function marcarEstado(estado, bloqueio) {
                 blocker: bloqueio
             })
         })
+
+        const data = await resposta.json()
+
+        return data.xp
     } catch(erro) {
         console.error("Erro ao marcar estado", erro)
     }

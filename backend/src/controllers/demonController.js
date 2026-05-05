@@ -34,7 +34,7 @@ async function marcarDemonio(req, res) {
             await sistemaModels.adicionarXp(userId, xpFinal, 'demon', hoje)
         }
 
-        res.status(200).json({ demon, status, xp: novoXp })
+        res.status(200).json({ demon, status, xp: xpFinal })
     } catch (erro) {
         console.error(erro)
         res.status(500).json({ erro: erro.sqlMessage })

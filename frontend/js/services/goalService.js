@@ -46,15 +46,14 @@ export async function checkinGoal() {
             }
         });
 
+        const data = await resposta.json()
+        
         if(!resposta.ok) {
             console.error("Falha ao marcar goal como conluido", resposta.text())
+            return false
         };
 
-        const data = await resposta.json()
-
-        console.log(data.xp)
-
-        return data.xp
+        return (data.xp, data.fezCheckinHoje)
 
     } catch (error) {
         console.error("Erro ao marcar goal como concluido: ", error)

@@ -130,8 +130,8 @@ export function mostrarModalEstado(container, main) {
         fecharBtn.click()
         buscarResumoSemanal()
         setTimeout(() => {
-            if (estado.xp !== false){
-                gerarToast("good", `Estado registrado +${estado.xp} XP`)
+            if (estado !== false){
+                gerarToast("good", `Estado registrado +${estado} XP`)
             }
             atualizarGraficoBloqueios(main)
             buscarResumoSemanal()

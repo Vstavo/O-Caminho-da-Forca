@@ -1,5 +1,6 @@
 import { autenticarUsuario} from "../services/authService.js";
 import { cadastrarUsuario } from "../services/cadService.js";
+import { gerarToast } from "../utils/toasts.js"
 
 const main = document.getElementById('authApp');
 
@@ -63,18 +64,40 @@ function loginScreen() {
 
     const btn = main.querySelector('#loginBtn');
     const cad = main.querySelector('#cadastro');
+    const email = main.querySelector('#email');
+    const senha = main.querySelector('#password');
 
+    email.addEventListener('keyup', (e) => {
+        if (e.key !== 'Enter') return;
+        senha.focus();
+    });
 
-    btn.addEventListener('click', () => {
-        localStorage.removeItem('nomeUsuario');
-        localStorage.removeItem('emailUsuario');
-        const email = main.querySelector('#email').value;
-        const senha = main.querySelector('#password').value;
-        autenticarUsuario(email, senha);
+    senha.addEventListener('keyup', (e) => {
+        if (e.key !== 'Enter') return;
+        btn.click();
+    });
+
+    btn.addEventListener('click', async () => {
+        const valorEmail = main.querySelector('#email').value;
+        const valorSenha = main.querySelector('#password').value;
+        const usuario = await autenticarUsuario(valorEmail, valorSenha);
+
+        if(usuario !== false) {
+            if (usuario === 0) {
+                gerarToast("advise", "email e/ou senha incorretos");
+            } else {
+                gerarToast("good", "Login efetuado");
+                setTimeout(() => {
+                    window.location = 'app.html'
+                }, 500);
+            };
+        } else {
+            gerarToast("error", "Erro ao fazer login")
+        };
     });
 
     cad.addEventListener('click', () => {
-        cadScreen()
+        cadScreen();
     });
 };
 
@@ -114,46 +137,159 @@ function cadScreen() {
     `;
 
     const btn = main.querySelector('#cadBtn');
-
+    const nome = main.querySelector('$nome');
+    const email = main.querySelector('#email');
     const senha = main.querySelector("#password");
+    const senhaConfirm = main.querySelector("#confirmPassword");
 
-    const caracteresNecessarios = ['!', '@', '#', '$', '%', '&', '*', '.', '-', '_']
+    nome.addEventListener('keyup', (e) => {
+        if (e.key !== 'Enter') return;
+        email.focus();
+    });
 
-    function caracterVerificacao() {
-        const valor = senha.value;
+    email.addEventListener('keyup', (e) => {
+        if (e.key !== 'Enter') return;
+        senha.focus();
+    });
+
+    senha.addEventListener('keyup', (e) => {
+        if (e.key !== 'Enter') return;
+        senhaConfirm.focus();
+    });
+
+    senhaConfirm.addEventListener('keyup', (e) => {
+        if (e.key !== 'Enter') return;
+        btn.click();
+    });
+
+    function validarEmail(email) {
+    if (!email) return false;
+
+    const partes = email.split('@');
+    if (partes.length !== 2) return false;
+
+    const usuario = partes[0];
+    const dominio = partes[1];
+
+    if (dominio[0].includes('.')) return false;
+
+    if (usuario.length === 0) return false;
+
+    if (!dominio.includes('.')) return false;
+
+    const partesDominio = dominio.split('.');
+
+    const extensao = partesDominio[partesDominio.length - 1];
+    
+    if (extensao.length < 2) return false;
+
+    return true;
+}
+
+    
+    function verificacao() {
+        const caracteresNecessarios = ['!', '@', '#', '$', '%', '&', '*', '.', '-', '_'];
+        const numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        
+        const senha = main.querySelector("#password").value;
+        const email = main.querySelector('#email').value;
+
         let temCaracter = false;
+        let temTamanho = false;
+        let temMaicuscula = false;
+        let temMinuscula = false;
+        let temNumero = false;
+        const temEmail = validarEmail(email);
 
-        for (let i = 0; i < valor.length; i++) {
+        if (senha.length > 7) temTamanho = true;
+        if (senha.toLowerCase() !== senha) temMaicuscula = true;       
+        if (senha.toUpperCase() !== senha) temMinuscula = true;    
+
+        for (let i = 0; i < senha.length; i++) {
+            if (temCaracter === true) break;
             for (let j = 0; j < caracteresNecessarios.length; j++) {
-                if (valor[i].includes(caracteresNecessarios[j])){
+                if (senha[i].includes(caracteresNecessarios[j])){
                     temCaracter = true
                     break;
-                }
-            }
-        }
+                };
+            };
+        };
 
-        return temCaracter;
+        for (let i = 0; i < senha.length; i++) {
+            if (temNumero === true) break;
+            for (let j = 0; j < numeros.length; j++) {
+                if(senha[i].includes(numeros[j])) {
+                    temNumero = true;
+                    break;
+                };
+            };
+        };
+
+        return { temCaracter, temTamanho, temMaicuscula, temMinuscula, temNumero, temEmail };
     }
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
         const nome = main.querySelector('#nome').value;
         const email = main.querySelector('#email').value;
         const senha = main.querySelector('#password').value;
         const confirmSenha = main.querySelector('#confirmPassword').value;
-        
-        const especial = caracterVerificacao()
 
-        if (!especial) {
-            alert('A senha deve ter no mínimo um caracter especial')
+        if (!nome || !email || !senha) {
+            gerarToast("advise", "Preencha todos os campos");
+            return;
+        };
+        
+        const resultadoVerificacao = verificacao()
+
+        if (!resultadoVerificacao.temEmail) {
+            gerarToast("advise", "Insira um email válido");
             return;
         }
+
+        if (!resultadoVerificacao.temMaicuscula && !resultadoVerificacao.temMinuscula) {
+            gerarToast("advise", "A senha deve conter uma letra");
+            return;
+        };
+        
+        if (!resultadoVerificacao.temMaicuscula) {
+            gerarToast("advise", "A senha deve conter uma letra maiúscula");
+            return;
+        };
+        
+        if (!resultadoVerificacao.temMinuscula) {
+            gerarToast("advise", "A senha deve conter uma letras minúscula");
+            return;
+        };
+        
+        if (!resultadoVerificacao.temNumero) {
+            gerarToast("advise", "A senha deve conter um numero")
+        }
+        
+        if (!resultadoVerificacao.temCaracter) {
+            gerarToast("advise", "A senha deve ter no mínimo um caracter especial");
+            return;
+        };
+        
+        if (!resultadoVerificacao.temTamanho) {
+            gerarToast("advise", "A senha deve ter pelo menos 8 caracteres");
+            return;
+        };
 
         if (senha !== confirmSenha) {
-            alert('As senhas não coincidem.');
+            gerarToast("advise", "As senhas não coincidem");
             return;
         }
 
-        cadastrarUsuario(email, senha, nome);
-        loginScreen();
+        const cadastro = await cadastrarUsuario(email, senha, nome);
+
+        if (cadastro !== false) {
+            gerarToast("good", "Usuário cadastrado");
+            setTimeout(() => {
+                loginScreen()
+            }, 500);
+        } else {
+            gerarToast("error", "Erro ao cadastrar usuário")
+        }
+
     });
 };

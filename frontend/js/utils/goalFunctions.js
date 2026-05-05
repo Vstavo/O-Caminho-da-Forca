@@ -123,9 +123,10 @@ export async function carregarPagina(main) {
 
     const progressBar = main.querySelector('#goal-progress-bar');
     const marcarBtn = main.querySelector('#check-button');
+    const porcentagemProgresso = parseInt(goalAtivo.progresso / goalAtivo.necessario * 100);
 
     function atualizarProgressBar() {
-        progressBar.style.width = `${goalAtivo.progresso}%`;
+        progressBar.style.width = `${porcentagemProgresso}%`;
     };
 
 
@@ -136,18 +137,26 @@ export async function carregarPagina(main) {
     marcarBtn.addEventListener('click', async () => {
         const checkin = await checkinGoal();
 
-        if (checkin !== false)
+        if(checkin === false) {
+            gerarToast("advise", `O dia já foi concluido`);
+            return
+        };
 
-        setTimeout(() => {
-            if (checkin.completo === true) {
-                gerarToast("good", `Objetivo concluido +${checkin} XP`)
-            } else {
-                gerarToast("good", `Dia concluido +${checkin} XP`)
-            }
-            carregarPagina(main)
-        }, 500)
-    })
+        if (checkin.xp !== false && checkin.xp !== null) {
 
-    atualizarProgressBar()
+            setTimeout(() => {
+                if (checkin.completo === true) {
+                    gerarToast("good", `Objetivo concluido +${checkin.xp} XP`);
+                } else {
+                    gerarToast("good", `Dia concluido +${checkin.xp} XP`);
+                };
+                carregarPagina(main)
+            }, 500);
 
-}
+        };
+
+    });
+
+    atualizarProgressBar();
+
+};
