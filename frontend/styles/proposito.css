@@ -15,7 +15,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/pages/proposito/moldura-pergaminho-nordico.png');
+    background-image: url('../assets/pages/proposito/moldura-pergaminho-aberto.png');
     z-index: 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -51,7 +51,7 @@
     height: 50%;
 }
 
-.dash-proposito .modal-goal-proposito .modal-content .modal-baixo::after {
+/* .dash-proposito .modal-goal-proposito .modal-content .modal-baixo::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -67,12 +67,28 @@
     -moz-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
-}
+} */
 
 .dash-proposito .modal-goal-proposito .modal-content .modal-cima .modal-title-placeholder {
+    position: relative;
     width: 100%;
-    height: 20px;
+    padding-top: 20px;
     margin-bottom: 40px;
+}
+
+.dash-proposito .modal-goal-proposito .modal-content .modal-cima .modal-title-placeholder::before {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: -40px;
+    width: 100%;
+    height: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    background-image: url('../assets/pages/proposito/tinta-progress-bar.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .dash-proposito .modal-goal-proposito .modal-content .modal-cima .modal-title {
@@ -112,37 +128,52 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
-/* .dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar-moldure::before {
+.dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar-moldure::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    top: -100%;
+    left: -9%;
+    width: 118%;
+    height: 300%;
+    z-index: -1;
+    background-image: url('../assets/pages/proposito/goal-progress-bar-moldure.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-clip: border-box;
-} */
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px -22px 40px -20px inset;
+
+}
 
 .dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar-moldure::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -100%;
+    left: -9%;
+    width: 118%;
+    height: 300%;
     z-index: 2;
+    background-image: url('../assets/pages/proposito/goal-progress-bar-moldure-after.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .dash-proposito .modal-goal-proposito .modal-content .modal-baixo .goal-progress-container .goal-progress-bar {
     width: 0%;
     height: 100%;
-    background-color: #0D0D0D;
+    background-color: goldenrod;
     border-radius: 5px 10px 10px 5px;
     -webkit-border-radius: 5px 10px 10px 5px;
     -moz-border-radius: 5px 10px 10px 5px;
@@ -177,6 +208,12 @@
     text-shadow: 1px 1px 2px #00000090;
     font-size: 18px;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px -22px 40px -20px inset;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
 
 .dash-proposito .modal-goal-proposito .modal-content .modal-baixo .container-check-button .check-button::before {
@@ -190,10 +227,144 @@
     border-radius: 3px;
     transition: background-color 0.3s ease;
     z-index: -1;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
 }
 
 
 .dash-proposito .modal-goal-proposito .modal-content .modal-baixo .container-check-button .check-button:active {
+    transform: scale(0.98);
+    -webkit-transform: scale(0.98);
+    -moz-transform: scale(0.98);
+    -ms-transform: scale(0.98);
+    -o-transform: scale(0.98);
+    filter: brightness(0.85);
+    -webkit-filter: brightness(0.85);
+}
+
+.dash-proposito .container-mensagem-goal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35vw;
+    height: 70vh;
+    gap: 20px;
+}
+
+.dash-proposito .container-mensagem-goal::before {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('../assets/pages/proposito/moldura-pergaminho-nordico.png');
+    z-index: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.dash-proposito .container-mensagem-goal::after {
+    content: "";
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 25%;
+    height: 25%;
+    background-image: url('../assets/pages/proposito/Mapa-fechado-com-sombra.png');
+    z-index: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.dash-proposito .container-mensagem-goal .container-mensagem-goal-content {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    height: 90%;
+    padding: 20px;
+}
+
+.dash-proposito .container-mensagem-goal .container-mensagem-goal-content::after {
+    content: "";
+    position: absolute;
+    bottom: 1%;
+    left: 0;
+    width: 20%;
+    height: 30%;
+    background-image: url('../assets/pages/proposito/ink-bowl.png');
+    z-index: -1;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.dash-proposito .titulo-mensagem-goal-placeholder{
+    position: relative;
+    width: 100%;
+    height: 20%;
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+
+.dash-proposito .mensagem-goal-placeholder{
+    width: 100%;
+    padding: 0 20px;
+    height: 40%;
+}
+
+.dash-proposito .container-mensagem-goal .mensagem-goal {
+    font-size: 24px;
+    color: #0D0D0D;
+    text-align: center;
+    padding: 20px;
+}
+
+.first-time-button-div{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.first-time-button-div .first-time-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 75px;
+    background-color: transparent;
+    border: none;
+    color: #deedffbd;
+    text-shadow: 1px 1px 2px #00000090;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px -22px 40px -20px inset;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.first-time-button-div .first-time-button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/buttons/wood-button.png');
+    background-size: 100% 100%;
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    z-index: -1;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+}
+
+.first-time-button-div .first-time-button:active {
     transform: scale(0.98);
     -webkit-transform: scale(0.98);
     -moz-transform: scale(0.98);

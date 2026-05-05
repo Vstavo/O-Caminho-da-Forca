@@ -24,6 +24,7 @@ export async function buscarGoalsAtivos() {
         }
 
         if (!resposta.ok) {
+            console.log("Nenhum objetivo Ativo")
             return { temAtivo: false }
         }
 
@@ -59,8 +60,27 @@ export async function criarGoal(titulo, descricao, totalProgresso) {
     const token = localStorage.getItem('token');
 
     try {
+        const resposta = await fetch('http://localhost:8080/goal/criar', {
+            method: 'POST',
+            headers: {
+                'Authorization' : `Bearer ${token}`,
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({
+                titulo: titulo,
+                descricao: descricao,
+                totalProgresso: totalProgresso
+            })
+        });
 
+        if(!resposta.ok) {
+            console.error("Falha ao criar goal: ", resposta.text())
+            return false
+        }
+
+        return true;
     } catch (error) {
         console.error("Erro ao criar goal: ", error)
+        return false
     }
 }
