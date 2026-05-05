@@ -31,6 +31,8 @@ export async function semGoalsModal(main) {
         criarGoalModal(main)
     })
 
+    btn.click()
+
 }
 
 export async function criarGoalModal(main) {
@@ -44,8 +46,8 @@ export async function criarGoalModal(main) {
                             <input type="text" class="titulo-mensagem-goal cinzel-decorative-bold modal-selection" id="titulo_ipt" placeholder="Qual o seu objetivo?">
                         </div>
                         <div class="mensagem-goal-placeholder">
-                            <input type="text" class="mensagem-goal" id="descricao_ipt" placeholder="O quê você deve fazer para alcançar?">
-                            <input type="number" class="mensagem-goal" id="dias_ipt" placeholder="Por quantos dias?">
+                            <input type="text" class="mensagem-goal cinzel-decorative-bold" id="descricao_ipt" placeholder="O quê você deve fazer para alcançar?">
+                            <input type="number" class="mensagem-goa cinzel-decorative-bold" id="dias_ipt" placeholder="Por quantos dias?">
                         </div>
                         <div class="first-time-button-div">
                             <button class="first-time-button" id="create-goal-button">
@@ -66,21 +68,28 @@ export async function criarGoalModal(main) {
     btn.addEventListener('click', async () => {
         const titulo = tituloInput.value;
         const descricao = descricaoInput.value;
-        const dias = diasInput.value;
+        const dias = Number(diasInput.value);
 
-        const criar = await criarGoal(titulo, descricao, dias)
+        if (!titulo || !descricao || !dias) {
+            setTimeout(() => {
+                gerarToast("advise", "Preencha todos os campos");
+            }, 500);
+            return;
+        };
+
+        const criar = await criarGoal(titulo, descricao, dias);
 
         if (criar !== false) {
             setTimeout(() => {
-                gerarToast("good", `Objetivo criado +${criar} XP`)
-                carregarPagina(main)
-            }, 500)
-        }
-    })
+                gerarToast("good", `Objetivo criado +${criar} XP`);
+                carregarPagina(main);
+            }, 500);
+        };
+    });
 
 
 
-}
+};
 
 export async function carregarPagina(main) {
 
