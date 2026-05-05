@@ -53,7 +53,7 @@ export async function checkinGoal() {
             return false
         };
 
-        return (data.xp, data.fezCheckinHoje)
+        return data.xp
 
     } catch (error) {
         console.error("Erro ao marcar goal como concluido: ", error)

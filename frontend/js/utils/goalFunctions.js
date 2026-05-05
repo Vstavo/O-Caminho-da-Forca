@@ -151,13 +151,13 @@ export async function carregarPagina(main) {
             return
         };
 
-        if (checkin.xp !== false && checkin.xp !== null) {
+        if (checkin !== false && checkin !== null) {
 
             setTimeout(() => {
                 if (checkin.completo === true) {
-                    gerarToast("good", `Objetivo concluido +${checkin.xp} XP`);
+                    gerarToast("good", `Objetivo concluido +${checkin} XP`);
                 } else {
-                    gerarToast("good", `Dia concluido +${checkin.xp} XP`);
+                    gerarToast("good", `Dia concluido +${checkin} XP`);
                 };
                 carregarPagina(main)
             }, 500);
