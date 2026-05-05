@@ -1,4 +1,5 @@
 import { marcarDia } from "../services/sequenciaService.js";
+import { gerarToast } from "../utils/toasts.js";
 
 export function paginaJornada(main) {
     const app = document.getElementById('app');
@@ -33,11 +34,16 @@ export function paginaJornada(main) {
 
     const sequenciaBtn = main.querySelector('#comecar-button');
 
-    sequenciaBtn.addEventListener('click', () => {
-        marcarDia();
+    sequenciaBtn.addEventListener('click', async () => {
+        const diaMarcado = await marcarDia();
         const btn = document.getElementById('eclipse-button')
-        setTimeout(() => {
-            btn.click()
-        }, 1000)
+        if (diaMarcado) {
+            setTimeout(() => {
+                if (diaMarcado.xp !== false) {
+                    gerarToast("good", `Dia concluido +${diaMarcado.xp} XP`)
+                }
+                btn.click()
+            }, 500)
+        }
     })
 }

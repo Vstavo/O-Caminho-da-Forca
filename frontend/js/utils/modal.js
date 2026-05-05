@@ -1,6 +1,7 @@
 import { buscarResumoSemanal } from "../services/buscarDadosService.js";
 import { marcarDemonio, marcarEstado } from "../services/enviarDadosService.js";
 import { atualizarGraficoBloqueios } from "./graphicModels.js";
+import { gerarToast } from "./toasts.js";
 
 export function mostrarModalDemon(container, demon) {
     container.innerHTML = '';
@@ -40,19 +41,34 @@ export function mostrarModalDemon(container, demon) {
         if (e.target === container) { fecharBtn.click()}
     })
 
-    resistiBtn.addEventListener('click', () => {
-        marcarDemonio(demon.name, "resistiu")
-        fecharBtn.click()
+    resistiBtn.addEventListener('click', async () => {
+        const marcar = await marcarDemonio(demon.name, "resistiu")
+        
+        setTimeout(() => {
+            gerarToast("good", `Resistiu +${marcar.xp} XP`)
+    
+            fecharBtn.click()
+        }, 500)
     })
 
-    naoEnfrenteiBtn.addEventListener('click', () => {
-        marcarDemonio(demon.name, "pulou")
-        fecharBtn.click()
+    naoEnfrenteiBtn.addEventListener('click', async () => {
+        const marcar = await marcarDemonio(demon.name, "pulou")
+        
+        setTimeout(() => {
+            gerarToast("advise", `Pulou +${marcar.xp} XP`)
+    
+            fecharBtn.click()
+        }, 500)
     })
 
-    cediBtn.addEventListener('click', () => {
-        marcarDemonio(demon.name, "falhou")
-        fecharBtn.click()
+    cediBtn.addEventListener('click', async () => {
+        const marcar = await marcarDemonio(demon.name, "falhou")
+        
+        setTimeout(() => {
+            gerarToast("error", `Cedeu ${marcar.xp} XP`)
+
+            fecharBtn.click()
+        }, 500)
     })
 
     fecharBtn.addEventListener('click', () => {
@@ -109,11 +125,14 @@ export function mostrarModalEstado(container, main) {
         if (e.target === container) { fecharBtn.click()}
     })
 
-    confirmarBtn.addEventListener('click', () => {
-        marcarEstado(estadoSel.value, bloqueioSel.value)
+    confirmarBtn.addEventListener('click', async () => {
+        const estado = await marcarEstado(estadoSel.value, bloqueioSel.value)
         fecharBtn.click()
         buscarResumoSemanal()
         setTimeout(() => {
+            if (estado.xp !== false){
+                gerarToast("good", `Estado registrado +${estado.xp} XP`)
+            }
             atualizarGraficoBloqueios(main)
             buscarResumoSemanal()
         }, 500)

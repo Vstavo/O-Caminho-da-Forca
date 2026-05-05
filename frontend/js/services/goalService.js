@@ -50,6 +50,12 @@ export async function checkinGoal() {
             console.error("Falha ao marcar goal como conluido", resposta.text())
         };
 
+        const data = await resposta.json()
+
+        console.log(data.xp)
+
+        return data.xp
+
     } catch (error) {
         console.error("Erro ao marcar goal como concluido: ", error)
     };
@@ -78,7 +84,11 @@ export async function criarGoal(titulo, descricao, totalProgresso) {
             return false
         }
 
-        return true;
+        const data = await resposta.json()
+
+        console.log(data.xp)
+
+        return data.xp;
     } catch (error) {
         console.error("Erro ao criar goal: ", error)
         return false

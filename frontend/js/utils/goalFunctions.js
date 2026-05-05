@@ -1,4 +1,5 @@
 import { criarGoal, buscarGoalsAtivos, checkinGoal } from "../services/goalService.js";
+import { gerarToast } from "./toasts.js";
 
 export async function semGoalsModal(main) {
 
@@ -62,17 +63,18 @@ export async function criarGoalModal(main) {
     const descricaoInput = main.querySelector('#descricao_ipt');
     const diasInput = main.querySelector('#dias_ipt');
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
         const titulo = tituloInput.value;
         const descricao = descricaoInput.value;
         const dias = diasInput.value;
 
-        const criar = criarGoal(titulo, descricao, dias)
+        const criar = await criarGoal(titulo, descricao, dias)
 
-        if (criar) {
+        if (criar !== false) {
             setTimeout(() => {
+                gerarToast("good", `Objetivo criado +${criar} XP`)
                 carregarPagina(main)
-            }, 1000)
+            }, 500)
         }
     })
 
@@ -131,12 +133,19 @@ export async function carregarPagina(main) {
         progressBar.style.borderRadius = '5px';
     };
 
-    marcarBtn.addEventListener('click', () => {
-        checkinGoal();
+    marcarBtn.addEventListener('click', async () => {
+        const checkin = await checkinGoal();
+
+        if (checkin !== false)
 
         setTimeout(() => {
-            atualizarProgressBar()
-        }, 100)
+            if (checkin.completo === true) {
+                gerarToast("good", `Objetivo concluido +${checkin} XP`)
+            } else {
+                gerarToast("good", `Dia concluido +${checkin} XP`)
+            }
+            carregarPagina(main)
+        }, 500)
     })
 
     atualizarProgressBar()

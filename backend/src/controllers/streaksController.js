@@ -58,9 +58,9 @@ async function atualizarStreaks(req, res) {
         const dataSQL = hoje.toISOString().slice(0, 10);
     
         await sistemModel.marcarDiaConcluido(userId, streakAtual, melhorStreak, `'${dataSQL}'`);
-        res.status(200).json({ streakAtual, melhorStreak, dataSQL })
-
         await sistemModel.adicionarXp(userId, quantidadeXp, 'checkin', dataSQL)
+        
+        res.status(200).json({ streakAtual, melhorStreak, dataSQL, xp: quantidadeXp })
         
     }catch (erro) {
         console.error(erro)

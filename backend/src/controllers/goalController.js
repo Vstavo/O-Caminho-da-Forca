@@ -68,11 +68,11 @@ async function checkinGoal(req, res) {
         if (goalNovo[0].progress >= goalNovo[0].total_progress) {
             await goalModels.completarGoal(goalId)
             await sistemaModels.adicionarXp(userId, 50, 'goal_completo', hoje)
-            return res.status(200).json({ mensagem: "Objetivo completo", xp: 50})
+            return res.status(200).json({ mensagem: "Objetivo completo", xp: 50, completo: true})
         }
         
         await sistemaModels.adicionarXp(userId, 15, 'goal_checkin', hoje)
-        return res.status(200).json({ mensagem: "Objetivo atualizado com sucesso", xp: 15})
+        return res.status(200).json({ mensagem: "Objetivo atualizado com sucesso", xp: 15, completo: false})
     } catch (error) {
         console.log("Erro: ", error)
         res.status(500).json({ erro: error.sqlMessage})
