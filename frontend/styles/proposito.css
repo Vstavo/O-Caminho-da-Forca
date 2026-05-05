@@ -315,7 +315,7 @@
 }
 
 .dash-proposito .container-mensagem-goal .mensagem-goal {
-    font-size: 24px;
+    font-size: 18px;
     color: #0D0D0D;
     text-align: center;
     padding: 20px;
@@ -375,6 +375,7 @@
 }
 
 .dash-proposito #titulo_ipt {
+    position: relative;
     width: 95%;
     height: 40%;
     padding: 0 20px;
@@ -385,6 +386,26 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    background-color: transparent;
+}
+
+.dash-proposito #titulo_ipt:focus {
+    outline: none;
+}
+
+.dash-proposito .titulo_ipt_placeholder::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 10px;
+    background-color: transparent;
+    background-image: url('../assets/pages/proposito/tinta-progress-bar-white.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 .dash-proposito #descricao_ipt {
@@ -398,7 +419,32 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    margin-bottom: 40px;
+    background-color: transparent;
+}
+
+.dash-proposito #descricao_ipt:focus {
+    outline: none;
+}
+
+.dash-proposito .descricao_ipt_placeholder {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    margin-bottom: 0;
+}
+
+.dash-proposito .descricao_ipt_placeholder::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: transparent;
+    background-image: url('../assets/pages/proposito/tinta-progress-bar-white.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 .dash-proposito #dias_ipt {
@@ -413,4 +459,31 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    background-color: transparent;
+}
+
+.dash-proposito #dias_ipt:focus {
+    outline: none;
+}
+
+.dash-proposito .dias_ipt_placeholder {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    margin-bottom: 40px;
+}
+
+.dash-proposito .dias_ipt_placeholder::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 10px;
+    background-color: transparent;
+    background-image: url('../assets/pages/proposito/tinta-progress-bar-white.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: -1;
 }

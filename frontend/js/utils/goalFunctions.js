@@ -9,10 +9,18 @@ export async function semGoalsModal(main) {
                 <div class="container-mensagem-goal">
                     <div class="container-mensagem-goal-content">
                         <div class="titulo-mensagem-goal-placeholder">
-                            <h1 class="titulo-mensagem-goal cinzel-decorative-bold modal-selection">Teste 01</h1>
+                            <h1 class="titulo-mensagem-goal cinzel-decorative-bold modal-selection">Propósito: a chama da força</h1>
                         </div>
                         <div class="mensagem-goal-placeholder">
-                            <span class="mensagem-goal"></span>
+                            <span class="mensagem-goal medievalsharp-light modal-selection">Na jornada de 
+                            <span class="medievalsharp-regular corpo-mensagem-destaque-red">Thorfinn</span>, a força não veio da espada, mas da mudança. 
+                            <span class="medievalsharp-bold">Quando ele perdeu o ódio que o movia, ficou vazio — até encontrar algo maior: um </span>
+                            <span class="medievalsharp-regular corpo-mensagem-destaque-red">propósito</span>. 
+                            Foi isso que o manteve de pé, mesmo sem ter mais contra quem lutar.
+                            A força verdadeira não nasce do corpo.
+                            Ela nasce daquilo que te faz continuar.
+                            Agora, a pergunta não é se você é forte…
+                            <span class="medievalsharp-regular corpo-mensagem-destaque-red">É por que você continua</span>.</span>
                         </div>
                         <div class="first-time-button-div">
                             <button class="first-time-button" id="first-time-button">
@@ -31,7 +39,7 @@ export async function semGoalsModal(main) {
         criarGoalModal(main)
     })
 
-    btn.click()
+    // btn.click()
 
 }
 
@@ -42,13 +50,15 @@ export async function criarGoalModal(main) {
             <div class="vertical-cem">
                 <div class="container-mensagem-goal">
                     <div class="container-mensagem-goal-content">
-                        <div class="titulo-mensagem-goal-placeholder">
+                        <div class="titulo-mensagem-goal-placeholder titulo_ipt_placeholder">
                             <input type="text" class="titulo-mensagem-goal cinzel-decorative-bold modal-selection" id="titulo_ipt" placeholder="Qual o seu objetivo?">
                         </div>
-                        <div class="mensagem-goal-placeholder">
+                        <div class="mensagem-goal-placeholder descricao_ipt_placeholder">
                             <input type="text" class="mensagem-goal cinzel-decorative-bold" id="descricao_ipt" placeholder="O quê você deve fazer para alcançar?">
-                            <input type="number" class="mensagem-goa cinzel-decorative-bold" id="dias_ipt" placeholder="Por quantos dias?">
-                        </div>
+                            </div>
+                            <div class="dias_ipt_placeholder">
+                                <input type="number" class="mensagem-goa cinzel-decorative-bold" id="dias_ipt" placeholder="Por quantos dias?">
+                            </div>
                         <div class="first-time-button-div">
                             <button class="first-time-button" id="create-goal-button">
                                 <span class="cinzel-decorative-bold">criar</span>
