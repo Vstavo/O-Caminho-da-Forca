@@ -11,8 +11,8 @@ router.post('/cadastrar', function (req, res) {
     controlesUsuario.cadastrarUsuario(req, res)
 });
 
-router.get('/nome', controlesUsuario.autenticarSessao, function (req, res) {
-    controlesUsuario.buscarNomeUsuario(req, res)
+router.get('/user', controlesUsuario.autenticarSessao, function (req, res) {
+    controlesUsuario.buscarDadosUsuario(req, res)
 });
 
 router.get('/verificar/sessao', controlesUsuario.autenticarSessao)

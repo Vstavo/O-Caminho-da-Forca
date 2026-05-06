@@ -1,5 +1,3 @@
-import { buscarNomeUsuario } from "./buscarDadosService.js";
-
 export async function autenticarUsuario(email, senha) {
     if (email === "" || senha === "") return;
 

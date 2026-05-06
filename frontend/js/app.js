@@ -3,20 +3,33 @@ import { paginaJornada } from "./pages/jornada.js";
 import { paginaEclipse } from "./pages/eclipse.js";
 import { paginaEspada } from "./pages/espada.js";
 import { paginaProposito } from "./pages/proposito.js";
-import { buscarNomeUsuario } from "./services/buscarDadosService.js";
+import { buscarDadosUsuario } from "./services/buscarDadosService.js";
+import { gerarToast } from "./utils/toasts.js";
 
 async function iniciar() {
-    const nome = await buscarNomeUsuario();
+    const usuario = await buscarDadosUsuario() || false;
+    console.log(usuario)
 
-    
-    
     const main = document.getElementById('content');
-    
-    if (!nome) {
+    if(usuario === null || usuario === false) {
         main.style.display = 'none'
         window.location = 'login.html'
+        return
     }
-        
+
+    const data = {
+        nome: usuario[0].name,
+        foto: usuario[0].perfil_photo
+    }
+    
+    
+    if (!data.nome) {
+        main.style.display = 'none'
+        window.location = 'login.html'
+        return
+    }
+
+    const userFoto = document.getElementById('foto-frame');    
     const userName = document.getElementById('user-name');
     const forcaBtn = document.getElementById('forca-button');
     const jornadaBtn = document.getElementById('jornada-button');
@@ -25,8 +38,11 @@ async function iniciar() {
     const propositoBtn = document.getElementById('proposito-button');
     const sairBtn = document.getElementById('logout-button');
 
-    userName.textContent = nome[0].name;
+    userName.textContent = data.nome;
     
+    const imagemPerfil = `<img class="foto-perfil" src="./assets/perfis/${data.foto}.png" alt="Foto de perfil">`
+
+    userFoto.innerHTML = imagemPerfil;
     
     const buttons = [
         forcaBtn,
@@ -69,7 +85,10 @@ async function iniciar() {
 
     sairBtn.addEventListener('click', () => {
         localStorage.removeItem('token');
-        iniciar()
+        setTimeout(() => {
+            gerarToast("good", "Até mais");
+            window.location = 'login.html';
+        }, 500);
     });
     
     function carregarInicio() {

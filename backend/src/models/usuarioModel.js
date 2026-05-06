@@ -24,8 +24,44 @@ async function buscarNomeUsuario (userId) {
     return await database.executar(instrucaoSql)
 }
 
+async function alterarFotoPerfil(userId, foto) {
+    const conexao = await database.pool.getConnection();
+
+    try {
+        const [alterarResult] = await conexao.query(
+            `UPDATE users SET photo_perfil = ? where id = ?`,
+            [foto, userId]
+        )
+
+        return alterarResult;
+    } catch (error) {
+        throw error;
+    } finally {
+        await conexao.release();
+    };
+};
+
+async function bucarDadosUsuario(userId) {
+    const conexao = await database.pool.getConnection();
+
+    try {
+        const [buscaResult] = await conexao.query(
+            `SELECT name, perfil_photo FROM users WHERE id = ?`,
+            [userId]
+        );
+
+        return buscaResult
+    } catch (error) {
+        throw error
+    } finally {
+        await conexao.release();
+    }
+}
+
 module.exports = {
     autenticarUsuario,
     cadastrarUsuario,
-    buscarNomeUsuario
+    buscarNomeUsuario,
+    alterarFotoPerfil,
+    bucarDadosUsuario
 }

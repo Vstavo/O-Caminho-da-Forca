@@ -1,8 +1,8 @@
-export async function buscarNomeUsuario() {
+export async function buscarDadosUsuario() {
     const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch(`http://localhost:8080/usuarios/nome`, {
+        const response = await fetch(`http://localhost:8080/usuarios/user`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
@@ -14,10 +14,11 @@ export async function buscarNomeUsuario() {
         }
 
         const data = await response.json();
+        console.log(data)
         return data;
 
     } catch (error) {
-        console.error('Erro ao buscar nome', error)
+        console.error('Erro ao buscar dados do usuario', error)
         return null;
     }
 }

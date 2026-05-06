@@ -7,10 +7,11 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
+    perfil_photo ENUM('generic', 'zoro', 'luffy', 'guts', 'berserk', 'grififth', 'musashi', 'sasaki', 'thorfinn', 'thors', 'askhelad') default 'generic',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-insert into users values (default, 'Gustavo', 'vieira.gusan@gmail.com', 'Gustavo@IamEZ123', default);
+insert into users values (default, 'Gustavo', 'vieira.gusan@gmail.com', 'Gustavo@IamEZ123', default, default);
 
 CREATE TABLE streaks (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,8 +22,6 @@ CREATE TABLE streaks (
 
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-
-
 
 CREATE TABLE demon_logs (
     id INT AUTO_INCREMENT PRIMARY KEY,

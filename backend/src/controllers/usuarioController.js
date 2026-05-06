@@ -138,9 +138,26 @@ function buscarNomeUsuario(req, res) {
     )
 }
 
+async function buscarDadosUsuario(req, res) {
+    const userId = req.usuario.userId;
+
+    try {
+        const buscaResultado = await usuarioModel.bucarDadosUsuario(userId);
+
+        if (buscaResultado.length <= 0) {
+            return res.status(404).json({ mensagem: 'Usuario não encontrado'});
+        };
+
+        return res.status(200).json(buscaResultado)
+    } catch (error) {
+        return res.status(500).json({ erro: error.sqlMessage })
+    };
+};
+
 module.exports = {
     autenticarUsuario,
     autenticarSessao,
     cadastrarUsuario,
-    buscarNomeUsuario
+    buscarNomeUsuario,
+    buscarDadosUsuario
 }
