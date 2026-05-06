@@ -40,7 +40,7 @@ async function iniciar() {
 
     userName.textContent = data.nome;
     
-    const imagemPerfil = `<img class="foto-perfil" src="./assets/perfis/${data.foto}.png" alt="Foto de perfil">`
+    const imagemPerfil = `<img class="foto-perfil" src="./assets/perfis/${data.foto}.png" alt="Foto de perfil">`;
 
     userFoto.innerHTML = imagemPerfil;
     
