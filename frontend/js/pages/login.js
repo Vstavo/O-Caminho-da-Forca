@@ -137,7 +137,7 @@ function cadScreen() {
     `;
 
     const btn = main.querySelector('#cadBtn');
-    const nome = main.querySelector('$nome');
+    const nome = main.querySelector('#nome');
     const email = main.querySelector('#email');
     const senha = main.querySelector("#password");
     const senhaConfirm = main.querySelector("#confirmPassword");
