@@ -199,8 +199,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-image: url('../assets/pages/forca/Forca-Background.png');
+    background-image: url('../assets/pages/forca/forca-backgroundi.png');
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     border: none;
 }
