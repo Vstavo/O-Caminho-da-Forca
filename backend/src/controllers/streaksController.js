@@ -37,7 +37,7 @@ async function atualizarStreaks(req, res) {
     
         if (diffDias === 0) {
             console.log(`O usuário de id = ${userId} já fez checkin hoje`)
-            return res.status(200).json({ mensagem: "Já fez checkin hoje" })
+            return res.status(200).json({ mensagem: "Já fez checkin hoje", xp: 0, jaFezCheckin: true })
         }
     
         if (diffDias === 1) {
@@ -60,7 +60,7 @@ async function atualizarStreaks(req, res) {
         await sistemModel.marcarDiaConcluido(userId, streakAtual, melhorStreak, `'${dataSQL}'`);
         await sistemModel.adicionarXp(userId, quantidadeXp, 'checkin', dataSQL)
         
-        res.status(200).json({ streakAtual, melhorStreak, dataSQL, xp: quantidadeXp })
+        res.status(200).json({ streakAtual, melhorStreak, dataSQL, xp: quantidadeXp, jaFezCheckin: false })
         
     }catch (erro) {
         console.error(erro)

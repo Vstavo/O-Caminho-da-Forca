@@ -61,11 +61,11 @@ body {
 }
 
 .app-geral{
-    background-color: #0d0d0d;
+    background: linear-gradient(to bottom, #271e17, #33261c);
 }
 
 .app-jornada{
-    background: linear-gradient(to bottom, #53b8e7, #0048a7);
+    background: linear-gradient(to bottom, #32718e, #021630);
 }
 
 .app-eclipse {
@@ -89,8 +89,8 @@ body {
     padding: 20px 10px;
     border-radius: 0 24px 24px 0;
     background-color: #3C3834;
-    background-image: url('../assets/pages/forca/Couro-Texture.png');
-    background-size: 100% 100%;
+    background-image: url('../assets/pages/forca/textura-couro-hd.png');
+    background-size: 300% 100%;
     background-position: center;
     color: #FCFCFC;
 }
@@ -116,6 +116,7 @@ body {
     transition: background-color 0.3s ease;
     color: #FCFCFC;
     font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .div-perfil {
@@ -210,7 +211,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-image: url('../assets/pages/jornada/one-piece-sea.jpg');
+    background-image: url('../assets/pages/jornada/Going-Marry-Realistic.png');
     background-size: cover;
     background-repeat: no-repeat;
     border: none;

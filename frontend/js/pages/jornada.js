@@ -18,7 +18,7 @@ export function paginaJornada(main) {
                 </div>
             </div>
             <div class="baixo-content-jornada">
-                <div class="container-mensagem">
+                <div class="jornada-container-mensagem">
                     <h2 class="titulo-mensagem cinzel-decorative-black modal-selection">Siga o SEU One Piece</h2>
                     <p class="corpo-mensagem medievalsharp-regular modal-selection">O <span class="medievalsharp-regular corpo-mensagem-destaque modal-selection">One Piece</span> é a maior motivação para piratas arriscarem suas vidas no mar em busca de aventuras, toda mudança começa com um <span class="medievalsharp-regular corpo-mensagem-destaque modal-selection">motivo para agir</span>, daí vem o nome motivação!</p>
                     <p class="corpo-mensagem medievalsharp-regular modal-selection">Se você tem um <span class="medievalsharp-regular corpo-mensagem-destaque modal-selection">motivo para seguir em frente</span>, então vá agora e enfrente <span class="medievalsharp-regular corpo-mensagem-destaque-red modal-selection">seus demônios</span></p>
@@ -37,13 +37,18 @@ export function paginaJornada(main) {
     sequenciaBtn.addEventListener('click', async () => {
         const diaMarcado = await marcarDia();
         const btn = document.getElementById('eclipse-button')
-        if (diaMarcado) {
+        if (diaMarcado.fezCheckin === false) {
             setTimeout(() => {
                 if (diaMarcado.xp !== false) {
                     gerarToast("good", `Dia concluido +${diaMarcado.xp} XP`)
                 }
                 btn.click()
             }, 500)
+        } else {
+            setTimeout(() => {
+                gerarToast("advise", diaMarcado.mensagem)
+                btn.click()
+            }, 500);
         }
     })
 }

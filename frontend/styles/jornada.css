@@ -44,9 +44,10 @@
 .dash-jornada .berserk-button {
     width: 100px;
     height: 100px;
-    background-image: url('../assets/pages/forca/Berserk_Moldure.png');
+    background-image: url('../assets/pages/jornada/one-piece-broche.png');
     background-position: center;
     background-size: 100% 100%;
+    background-color: transparent;
     outline: none;
     border: none;
     cursor: pointer;
@@ -77,7 +78,8 @@
 
 .dash-jornada .comecar-label span{
     position: relative;
-    background-image: linear-gradient(to right, #7E5C39, #8E6B47, #A78C73, #8E6B47, #7E5C39);
+    background-image: linear-gradient(to right, #7d1212, #d31616, #ebaeae, #d31616, #7d1212);
+    /* background-image: linear-gradient(to right, #7d5e12, #d3b716, #ebddae, #d3b716, #7d5e12); */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -113,8 +115,8 @@
 
 .dash-jornada .comecar-label{
     position: relative;
-    background-color: #0d0d0d50;
-    backdrop-filter: blur(15px);
+    /* background-color: #0d0d0d50; */
+    /* backdrop-filter: blur(15px); */
     text-align: center;
     margin-top: 20px;
     cursor: pointer;
@@ -125,7 +127,11 @@
     padding: 10px 20px;
     margin: 10px;
     border: 8px solid transparent;
-    border-image: url('../assets/borders/Stone-Border.png') 30 round;
+    background-image: url('../assets/pages/jornada/wooden-plank.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* border-image: url('../assets/borders/Stone-Border.png') 30 round; */
 }
 
 .dash-jornada .modal-selection::selection{
@@ -136,4 +142,44 @@
 .dash-jornada .modal-selection::-moz-selection{
     background-color: goldenrod;
     color: #0D0D0D;
+}
+
+.dash-jornada .jornada-container-mensagem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 50%;
+    height: 50%;
+    z-index: 1;
+}
+
+.dash-jornada .jornada-container-mensagem::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('../assets/pages/jornada/old-paper.png');
+    background-position: center;
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+.dash-jornada .jornada-container-mensagem .titulo-mensagem {
+    font-size: 32px;
+    text-align: center;
+    filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.7));
+    -webkit-filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.7));
+}
+
+.dash-jornada .jornada-container-mensagem .corpo-mensagem {
+    font-size: 24px;
+    text-align: center;
+    color: #0677c7;
+    filter: drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.7));
+    -webkit-filter: drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.7));
 }

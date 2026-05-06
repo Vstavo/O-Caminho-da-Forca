@@ -15,7 +15,8 @@ export async function marcarDia() {
             throw new Error('Falha ao marcar dia')
         }
 
-        return await response.json()
+        const data = await response.json()
+        return { xp: data.xp, fezCheckin: data.jaFezCheckin, mensagem: data.mensagem }
 
     }catch(error){
         console.error("Erro ao marcar dia", error)
