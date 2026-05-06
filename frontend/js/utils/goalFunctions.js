@@ -101,6 +101,7 @@ export async function criarGoalModal(main) {
 
 };
 
+
 export async function carregarPagina(main) {
 
     const goalAtivo = await buscarGoalsAtivos();
@@ -110,8 +111,6 @@ export async function carregarPagina(main) {
         semGoalsModal(main)
         return;
     }
-
-    sessionStorage.removeItem("porcentagem_progresso");
 
     main.innerHTML = `
         <div class="conteudo">
@@ -148,7 +147,7 @@ export async function carregarPagina(main) {
     async function atualizarProgressBar() {
         const goalDoProgresso = await buscarGoalsAtivos()
         const porcentagemProgresso = parseInt(goalDoProgresso.progresso / goalDoProgresso.necessario * 100);
-        let ultimaPorcentagem = JSON.parse(sessionStorage.getItem("porcentagem_progresso")) || 0
+        let ultimaPorcentagem = JSON.parse(localStorage.getItem("porcentagem_progresso")) || 0
 
         progressBar.style.width = `${ultimaPorcentagem}`;
 
@@ -161,6 +160,7 @@ export async function carregarPagina(main) {
         };
     };
 
+    atualizarProgressBar();
 
 
     marcarBtn.addEventListener('click', async () => {
@@ -173,15 +173,18 @@ export async function carregarPagina(main) {
 
         if (checkin.xp !== false && checkin.xp !== null) {
 
+            console.log(checkin.completo)
+
             setTimeout(() => {
-                if (checkin.completo === true) {
+                if (checkin.completo !== false) {
                     gerarToast("good", `Objetivo concluido +${checkin.xp} XP`);
                     setTimeout(() => {
+                        localStorage.removeItem("porcentagem_progresso");
                         carregarPagina(main)
                     }, 500)
                 } else {
                     gerarToast("good", `Dia concluido +${checkin.xp} XP`);
-                    sessionStorage.setItem("porcentagem_progresso", JSON.stringify(parseInt(goalAtivo.progresso / goalAtivo.necessario * 100) + 1))
+                    localStorage.setItem("porcentagem_progresso", JSON.stringify(parseInt(goalAtivo.progresso / goalAtivo.necessario * 100) + 1))
                 };
             }, 500);
             
@@ -190,6 +193,5 @@ export async function carregarPagina(main) {
 
     });
 
-    atualizarProgressBar();
 
 };

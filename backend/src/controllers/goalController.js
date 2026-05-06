@@ -60,8 +60,7 @@ async function checkinGoal(req, res) {
 
         const goalId = verificarGoalExistente[0].id;
 
-
-        await goalModels.checkinGoal(goalId)
+        await goalModels.checkinGoal(goalId);
         
         const goalNovo = await goalModels.buscarGoalAtivo(userId);
         

@@ -58,7 +58,7 @@ export async function checkinGoal() {
             return false;
         };
 
-        return { feitoHoje: data.feitoHoje, xp: data.xp}
+        return { feitoHoje: data.feitoHoje, xp: data.xp, completo: data.completo}
 
     } catch (error) {
         console.error("Erro ao marcar goal como concluido: ", error)

@@ -70,11 +70,11 @@ async function checkinGoal(goalId) {
         );
 
         const [updateDateLog] = await conexao.query(
-            `UPDATE goals SET last_update = CURDATE() WHERE id = ? AND last_update < CURDATE()`,
+            `UPDATE goals SET last_update = CURDATE() WHERE id = ? AND (last_update < CURDATE() OR last_update IS NULL)`,
             [goalId]
-        )
+        );
 
-        await conexao.commit()
+        await conexao.commit();
 
         return checkinResult;
 
