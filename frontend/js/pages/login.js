@@ -17,12 +17,12 @@ function loginScreen() {
         <div class="left" id="left">
             <div id="login-container" class="login-container">
                 <div class="login-title">
-                    <h1>Login</h1>
+                    <h1 class="modal-selection">Login</h1>
                 </div>
                 <div class="form" id="form">
-                    <label for="email">email:</label>
+                    <label class="modal-selection" for="email">email:</label>
                     <input type="email" id="email" name="email" required>
-                    <label for="password">Password:</label>
+                    <label class="modal-selection" for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                     <div class="utilBtns">
                         <button id="esqSenha">Esqueceu a senha?</button>
@@ -35,26 +35,26 @@ function loginScreen() {
         <div class="right" id="right">
             <div class="container-modal">
                 <div class="container-hero">
-                    <h1>OS 4 PILARES</h1>
-                    <p>Você está a um clique de começar a trilhar o caminho para sua verdadeira força!</p>
-                    <p>Agora queimem os barcos! Pois este é um caminho sem volta!</p>
+                    <h1 class="modal-selection">OS 4 PILARES</h1>
+                    <p class="modal-selection">Você está a um clique de começar a trilhar o caminho para sua verdadeira força!</p>
+                    <p class="modal-selection">Agora queimem os barcos! Pois este é um caminho sem volta!</p>
                 </div>
                 <div class="container-itens">
                     <div class="item">
-                        <h2>1. MOTIVAÇÃO</h2>
-                        <p>A motivação é o motor da ação. Encontre o motivo de sua batalha.</p>
+                        <h2 class="modal-selection">1. MOTIVAÇÃO</h2>
+                        <p class="modal-selection">A motivação é o motor da ação. Encontre o motivo de sua batalha.</p>
                     </div>
                     <div class="item">
-                        <h2>2. CORPO</h2>
-                        <p>O corpo é o templo do espírito. Defenda-o de seus demônios. Cuide dele com exercícios físicos, alimentação saudável e descanso adequado para fortalecer sua resistência e vitalidade.</p>
+                        <h2 class="modal-selection">2. CORPO</h2>
+                        <p class="modal-selection">O corpo é o templo do espírito. Defenda-o de seus demônios. Cuide dele com exercícios físicos, alimentação saudável e descanso adequado para fortalecer sua resistência e vitalidade.</p>
                     </div>
                     <div class="item">
-                        <h2>3. CONTROLE</h2>
-                        <p>O poder da mente é a base de tudo. Aprenda a controlar seus pensamentos e direcionar emoções para alcançar a verdadeira força interior.</p>
+                        <h2 class="modal-selection">3. CONTROLE</h2>
+                        <p class="modal-selection">O poder da mente é a base de tudo. Aprenda a controlar seus pensamentos e direcionar emoções para alcançar a verdadeira força interior.</p>
                     </div>
                     <div class="item">
-                        <h2>4. PROPÓSITO</h2>
-                        <p>O espírito é a conexão com algo maior. Cultive sua espiritualidade através de práticas como meditação, oração ou qualquer atividade que te conecte com o divino.</p>
+                        <h2 class="modal-selection">4. PROPÓSITO</h2>
+                        <p class="modal-selection">O espírito é a conexão com algo maior. Cultive sua espiritualidade através de práticas como meditação, oração ou qualquer atividade que te conecte com o divino.</p>
                     </div>
                 </div>
             </div>
@@ -116,16 +116,16 @@ function cadScreen() {
         <div class="center" id="center">
             <div id="cad-container" class="cad-container">
                 <div class="cad-title">
-                    <h1>Cadastro</h1>
+                    <h1 class="modal-selection">Cadastro</h1>
                 </div>
                 <div class="form" id="form">
-                    <label for="nome">Nome:</label>
+                    <label class="modal-selection" for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-                    <label for="email">Email:</label>
+                    <label class="modal-selection" for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="email@example.com" required>
-                    <label for="password">Senha:</label>
+                    <label class="modal-selection" for="password">Senha:</label>
                     <input type="password" id="password" name="password" placeholder="Abc@1234" required>
-                    <label for="confirmPassword">Confirme a senha:</label>
+                    <label class="modal-selection" for="confirmPassword">Confirme a senha:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Abc@1234" required>
                     <div class="utilBtns">
                     </div>

@@ -373,3 +373,13 @@ body {
     background-color: #F44336;
     font-weight: bold;
 }
+
+.modal-selection::selection {
+    background-color: #daedff;
+    color: #020201;
+}
+
+.modal-selection::-moz-selection {
+    background-color: #daedff;
+    color: #020201;
+}
