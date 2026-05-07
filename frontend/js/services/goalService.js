@@ -84,11 +84,18 @@ export async function criarGoal(titulo, descricao, totalProgresso) {
         });
 
         if(!resposta.ok) {
-            console.error("Falha ao criar goal: ", resposta.text())
+            const data = await resposta.json()
+            if (data.diasValidos === false) {
+                console.error("Número de dias inválido");
+                return data
+            }
+            console.error("Falha ao criar goal: ", await resposta.json().erro)
             return false
         }
 
         const data = await resposta.json()
+
+        
 
         console.log(data.xp)
 

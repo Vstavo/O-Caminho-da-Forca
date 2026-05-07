@@ -9,7 +9,9 @@ async function criarGoal(req, res) {
         const verificarGoalExistente = await goalModels.buscarGoalAtivo(userId);
 
         if (verificarGoalExistente.length > 0 && verificarGoalExistente[0].status === 'ativo') {
-            return res.status(400).json({ erro: `Não foi possível criar o objetivo pois o usuario tem um objetivo não concluído`})
+            return res.status(400).json({ erro: `Não foi possível criar o objetivo pois o usuario tem um objetivo não concluído` })
+        } else if (totalProgresso < 7) {
+            return res.status(400).json({ erro: 'Não é possível criar um objetivo com menos de sete dias', diasValidos: false })
         };
 
         const dia = new Date();
@@ -20,7 +22,7 @@ async function criarGoal(req, res) {
         await goalModels.criarGoal(userId, titulo, descricao, totalProgresso);
         await sistemaModels.adicionarXp(userId, 30, 'goal_criado', hoje)
 
-        return res.status(201).json({ mensagem: "Objetivo criado com sucesso", xp: 30});
+        return res.status(201).json({ mensagem: "Objetivo criado com sucesso", xp: 30, diasValidos: true});
 
     } catch (error) {
         console.log("Erro: ", error)

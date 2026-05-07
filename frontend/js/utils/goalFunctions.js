@@ -88,8 +88,14 @@ export async function criarGoalModal(main) {
         };
 
         const criar = await criarGoal(titulo, descricao, dias);
-
+        
+        if(criar.diasValidos === false) {
+            gerarToast("advise", `O objetivo deve ter duração de 7 dias ou mais`);
+            return
+        }
+        
         if (criar !== false) {
+            console.log(criar)
             setTimeout(() => {
                 gerarToast("good", `Objetivo criado +${criar} XP`);
                 carregarPagina(main);
