@@ -106,8 +106,8 @@ body {
     padding: 20px 10px;
     font-size: 16px;
     cursor: pointer;
-    min-width: 260px;
-    min-height: 60px;
+    min-width: 90%;
+    min-height: auto;
     background: transparent;
     background-image: url('../assets/pages/forca/button-moldure.png');
     background-size: 100% 100%;
