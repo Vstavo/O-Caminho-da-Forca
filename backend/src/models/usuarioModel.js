@@ -29,7 +29,7 @@ async function alterarFotoPerfil(userId, foto) {
 
     try {
         const [alterarResult] = await conexao.query(
-            `UPDATE users SET photo_perfil = ? where id = ?`,
+            `UPDATE users SET perfil_photo = ? where id = ?`,
             [foto, userId]
         )
 

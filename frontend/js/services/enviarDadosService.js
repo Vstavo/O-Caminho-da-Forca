@@ -56,3 +56,27 @@ export async function marcarEstado(estado, bloqueio) {
         console.error("Erro ao marcar estado", erro)
     }
 }
+
+export async function alterarFotoPerfil(foto) {
+    const token = localStorage.getItem('token');
+
+    try{
+        const resposta = await fetch('http://localhost:8080/usuarios/foto/alterar', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({foto: foto})
+        })
+
+        if (!resposta.ok) {
+            console.error({ erro: "Não foi possível trocar a foto"})
+            return false
+        }
+
+        return { mensagem: "Foto de perfil atualizada"}
+    } catch (error) {
+        return console.error(error)
+    }
+}

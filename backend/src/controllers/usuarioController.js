@@ -125,15 +125,15 @@ function buscarNomeUsuario(req, res) {
         function (resultadoBuscar){
             if (resultadoBuscar.length > 0) {
                 console.log('Nome de usuário encontrado')
-                res.status(200).json(resultadoBuscar)
+                return res.status(200).json(resultadoBuscar)
             } else {
-                res.status(400).json({ mensagem: 'Não encontrado' })
+                return res.status(400).json({ mensagem: 'Não encontrado' })
             }
         }
     ).catch(
         function (erro) {
             console.error(erro)
-            res.status(500).json({ erro: erro.sqlMessage })
+            return res.status(500).json({ erro: erro.sqlMessage })
         }
     )
 }
@@ -154,10 +154,27 @@ async function buscarDadosUsuario(req, res) {
     };
 };
 
+async function alterarFotoPerfil(req, res) {
+    const userid = req.usuario.userId;
+    const foto = req.body.foto;
+
+    try {
+        const fotoResult = await usuarioModel.alterarFotoPerfil(userid, foto)
+
+        if (fotoResult.length <= 0) {
+            return res.status(403).json({ erro: "Não foi possível alterar a foto"})
+        }
+        return res.status(200).json(fotoResult)
+    } catch (error) {
+        return res.status(500).json({ erro: error.sqlMessage })
+    }
+}
+
 module.exports = {
     autenticarUsuario,
     autenticarSessao,
     cadastrarUsuario,
     buscarNomeUsuario,
-    buscarDadosUsuario
+    buscarDadosUsuario,
+    alterarFotoPerfil
 }

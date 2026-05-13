@@ -5,6 +5,7 @@ import { paginaEspada } from "./pages/espada.js";
 import { paginaProposito } from "./pages/proposito.js";
 import { buscarDadosUsuario } from "./services/buscarDadosService.js";
 import { gerarToast } from "./utils/toasts.js";
+import { paginaPerfil } from "./pages/perfil.js";
 
 async function iniciar() {
     const usuario = await buscarDadosUsuario() || false;
@@ -43,6 +44,11 @@ async function iniciar() {
     const imagemPerfil = `<img class="foto-perfil" src="./assets/perfis/${data.foto}.png" alt="Foto de perfil">`;
 
     userFoto.innerHTML = imagemPerfil;
+
+    userFoto.addEventListener('click', () => {
+        paginaPerfil(main);
+        deixarAtivoBtn('perfil')
+    });
     
     const buttons = [
         forcaBtn,
@@ -57,6 +63,12 @@ async function iniciar() {
             buttons[i].classList.toggle('active', buttons[i] === botaoAtivo)
         }
     };
+
+    // function desativarBtn() {
+    //     for(let i = 0; 1< buttons.length; i++) {
+    //         buttons[i].classList.toggle('active', false)
+    //     }
+    // }
     
     forcaBtn.addEventListener('click', () => {
         deixarAtivoBtn(forcaBtn);
