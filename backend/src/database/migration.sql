@@ -7,7 +7,7 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    perfil_photo ENUM('generic', 'zoro', 'luffy', 'guts', 'berserk', 'grififth', 'musashi', 'sasaki', 'thorfinn', 'thors', 'askhelad') default 'generic',
+    perfil_photo ENUM('generic', 'zoro', 'luffy', 'guts', 'berserk', 'grififth', 'musashi', 'sasaki', 'thorfinn', 'thors', 'askhelad', 'usopp') default 'generic',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -48,7 +48,8 @@ function autenticarUsuario(req, res) {
     .then(
         function (resultadoAutenticar){
             if (resultadoAutenticar.length === 1){
-                console.log('Usuário encontrado')
+
+                if(resultadoAutenticar[0].password !== senha) return res.status(401).json({ mensagem: "Email e/ou senha inválidos" })
                 
                 const usuario = resultadoAutenticar[0];
                 
@@ -63,7 +64,7 @@ function autenticarUsuario(req, res) {
                 res.status(200).json({ token })
             } else {
                 console.log('Email e/ou senha inválidos!')
-                res.status(401).json(resultadoAutenticar)
+                res.status(401).json({ mensagem: "Email e/ou senha inválidos"})
             }
         }
     ).catch(

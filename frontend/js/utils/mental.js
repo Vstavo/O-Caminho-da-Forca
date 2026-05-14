@@ -51,8 +51,11 @@ export async function mostrarResumoNaTela(main) {
     }
 
     const mensagemEstado = `Você esteve majoritariamente <span class="cinzel-decorative-black corpo-mensagem-destaque-blue modal-selection" id="ultimo-estado">${estadoFormatado}</span>`;
-    const mensagemBloqueio = `Seu maior bloqueio é a <span class="cinzel-decorative-black corpo-mensagem-destaque-blue modal-selection" id="ultimo-bloqueio">${bloqueioFormatado}</span>`;
+    let mensagemBloqueio = `Seu maior bloqueio é a <span class="cinzel-decorative-black corpo-mensagem-destaque-blue modal-selection" id="ultimo-bloqueio">${bloqueioFormatado}</span>`;
     // const mensagemConsistencia = `Consistência: <span class="cinzel-decorative-black corpo-mensagem-destaque-blue modal-selection" id="dias-conseutivos">${consistencia}</span> dias consecutivos`;
+    if(bloqueioFormatado.endsWith('o')) {
+        mensagemBloqueio = `Seu maior bloqueio é o <span class="cinzel-decorative-black corpo-mensagem-destaque-blue modal-selection" id="ultimo-bloqueio">${bloqueioFormatado}</span>`;
+    }
 
     estadoPlaceholder.innerHTML = mensagemEstado;
     bloqueioPlaceholder.innerHTML = mensagemBloqueio;
