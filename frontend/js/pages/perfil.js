@@ -6,16 +6,22 @@ import { gerarToast } from "../utils/toasts.js";
 export async function paginaPerfil(main) {
     const app = document.getElementById('app');
     app.className = '';
-    app.classList.add('app-geral');
+    app.classList.add('app-perfil');
     main.innerHTML = '';
     main.className = '';
-    main.classList.add('dash-geral');
+    main.classList.add('perfil-page');
 
     const user = await buscarDadosUsuario()
 
     main.innerHTML = `
-        <div class="conteudo">
-            <div class="cabecalhos">
+        <div class="conteudo-horizontal">
+            <div class="esquerda-sessenta">
+                <div class="perfil-container">
+                    <div class="cabecalhos">
+                    </div>
+                </div>
+            </div>
+            <div class="direita-quarenta">  
                 <div class="images-carrousel" id="images-carrousel">
                     <div class="slides" id="slides">
                         <img id="generic" class="slide-img" src="../assets/perfis/generic.png" alt="generic" />
@@ -28,8 +34,6 @@ export async function paginaPerfil(main) {
                         <img id="luffy" class="slide-img" src="../assets/perfis/luffy.png" alt="luffy" />
                         </div>
                 </div>
-            </div>
-            <div class="corpo">
             </div>
         </div>
     `;

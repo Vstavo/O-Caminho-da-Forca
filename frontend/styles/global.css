@@ -64,6 +64,10 @@ body {
     background: linear-gradient(to bottom, #271e17, #33261c);
 }
 
+.app-perfil{
+    background: linear-gradient(to right, #2b2219, 70%, #3ab0e2);
+}
+
 .app-jornada{
     background: linear-gradient(to bottom, #32718e, #021630);
 }
@@ -247,6 +251,16 @@ body {
     flex-direction: column;
     gap: 20px;
     background-image: url('../assets/pages/proposito/canute-vinland-saga.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.perfil-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* background-image: url('../assets/textures/wood-table.png'); */
     background-size: cover;
     background-repeat: no-repeat;
     border: none;
