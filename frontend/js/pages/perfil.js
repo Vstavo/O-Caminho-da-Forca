@@ -19,20 +19,31 @@ export async function paginaPerfil(main) {
                 <div class="perfil-container">
                     <div class="cabecalhos">
                     </div>
+                    <div class="perfil-card">
+                        <div class="perfil-card-img"></div>
+                    </div>
                 </div>
             </div>
             <div class="direita-quarenta">  
                 <div class="images-carrousel" id="images-carrousel">
                     <div class="slides" id="slides">
-                        <img id="generic" class="slide-img" src="../assets/perfis/generic.png" alt="generic" />
-                        <img id="berserk" class="slide-img" src="../assets/perfis/berserk.png" alt="berserk" />
-                        <img id="thors" class="slide-img" src="../assets/perfis/thors.png" alt="thors" />
-                        <img id="usopp" class="slide-img" src="../assets/perfis/usopp.png" alt="usopp" />
-                        <img id="thorfinn" class="slide-img" src="../assets/perfis/thorfinn.png" alt="thorfinn" />
-                        <img id="guts" class="slide-img" src="../assets/perfis/guts.png" alt="guts" />
-                        <img id="zoro" class="slide-img" src="../assets/perfis/zoro.png" alt="zoro" />
-                        <img id="luffy" class="slide-img" src="../assets/perfis/luffy.png" alt="luffy" />
+                        <div class="slide-group">
+                            <img id="generic" class="slide-img" src="../assets/perfis/generic.png" alt="generic" />
+                            <img id="berserk" class="slide-img" src="../assets/perfis/berserk.png" alt="berserk" />
                         </div>
+                        <div class="slide-group">
+                            <img id="thors" class="slide-img" src="../assets/perfis/thors.png" alt="thors" />
+                            <img id="usopp" class="slide-img" src="../assets/perfis/usopp.png" alt="usopp" />
+                        </div>
+                        <div class="slide-group">
+                            <img id="thorfinn" class="slide-img" src="../assets/perfis/thorfinn.png" alt="thorfinn" />
+                            <img id="guts" class="slide-img" src="../assets/perfis/guts.png" alt="guts" />
+                        </div>
+                        <div class="slide-group">
+                            <img id="zoro" class="slide-img" src="../assets/perfis/zoro.png" alt="zoro" />
+                            <img id="luffy" class="slide-img" src="../assets/perfis/luffy.png" alt="luffy" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,6 +58,9 @@ export async function paginaPerfil(main) {
     const guts = main.querySelector('#guts');
     const zoro = main.querySelector('#zoro');
     const luffy = main.querySelector('#luffy');
+    const perfilCardFoto = main.querySelector('.perfil-card-img');
+
+    perfilCardFoto.innerHTML = `<img src="../assets/perfis/${user[0].perfil_photo}.png">`
 
     const imagens = [
         generic,
@@ -84,7 +98,8 @@ export async function paginaPerfil(main) {
         async function mudarFoto() {
             const retorno = await alterarFotoPerfil("generic")
             if (retorno !== false && retorno !== null) {
-                gerarToast("good", retorno.mensagem)
+                gerarToast("good", retorno.mensagem);
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/generic.png">`
             }
         }
         mudarFoto()
@@ -97,7 +112,8 @@ export async function paginaPerfil(main) {
         async function mudarFoto() {
             const retorno = await alterarFotoPerfil("berserk")
             if (retorno !== false && retorno !== null) {
-                gerarToast("good", retorno.mensagem)
+                gerarToast("good", retorno.mensagem);
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/berserk.png">`
             }
         }
         mudarFoto()
@@ -110,7 +126,8 @@ export async function paginaPerfil(main) {
         async function mudarFoto() {
             const retorno = await alterarFotoPerfil("thors")
             if (retorno !== false && retorno !== null) {
-                gerarToast("good", retorno.mensagem)
+                gerarToast("good", retorno.mensagem);
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/thors.png">`
             }
         }
         mudarFoto()
@@ -122,7 +139,8 @@ export async function paginaPerfil(main) {
         async function mudarFoto() {
             const retorno = await alterarFotoPerfil("usopp")
             if (retorno !== false && retorno !== null) {
-                gerarToast("good", retorno.mensagem)
+                gerarToast("good", retorno.mensagem);
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/usopp.png">`
             }
         }
         mudarFoto()
@@ -134,7 +152,8 @@ export async function paginaPerfil(main) {
         async function mudarFoto() {
             const retorno = await alterarFotoPerfil("thorfinn")
             if (retorno !== false && retorno !== null) {
-                gerarToast("good", retorno.mensagem)
+                gerarToast("good", retorno.mensagem);
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/thorfinng.png">`
             }
         }
         mudarFoto()
@@ -146,7 +165,8 @@ export async function paginaPerfil(main) {
         async function mudarFoto() {
             const retorno = await alterarFotoPerfil("guts")
             if (retorno !== false && retorno !== null) {
-                gerarToast("good", retorno.mensagem)
+                gerarToast("good", retorno.mensagem);
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/guts.png">`
             }
         }
         mudarFoto()
@@ -158,7 +178,8 @@ export async function paginaPerfil(main) {
         async function mudarFoto() {
             const retorno = await alterarFotoPerfil("zoro")
             if (retorno !== false && retorno !== null) {
-                gerarToast("good", retorno.mensagem)
+                gerarToast("good", retorno.mensagem);
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/zoro.png">`
             }
         }
         mudarFoto()
@@ -170,7 +191,8 @@ export async function paginaPerfil(main) {
         async function mudarFoto() {
             const retorno = await alterarFotoPerfil("luffy")
             if (retorno !== false && retorno !== null) {
-                gerarToast("good", retorno.mensagem)
+                gerarToast("good", retorno.mensagem);
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/luffy.png">`
             }
         }
         mudarFoto()
