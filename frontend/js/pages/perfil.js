@@ -153,7 +153,7 @@ export async function paginaPerfil(main) {
             const retorno = await alterarFotoPerfil("thorfinn")
             if (retorno !== false && retorno !== null) {
                 gerarToast("good", retorno.mensagem);
-                perfilCardFoto.innerHTML = `<img src="../assets/perfis/thorfinng.png">`
+                perfilCardFoto.innerHTML = `<img src="../assets/perfis/thorfinn.png">`
             }
         }
         mudarFoto()

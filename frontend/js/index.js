@@ -46,9 +46,15 @@
   });
 
   const startBtn = document.getElementById('start-btn');
+  const continueBtn = document.getElementById('continue-btn');
   if (startBtn) {
     startBtn.addEventListener('click', function () {
       window.location = './login.html'
+    });
+  }
+  if (continueBtn) {
+    continueBtn.addEventListener('click', function () {
+      window.location = './app.html'
     });
   }
 })();

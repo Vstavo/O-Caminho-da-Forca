@@ -65,6 +65,8 @@
 }
 
 .perfil-container {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,9 +74,11 @@
     height: 100%;
     gap: 20px;
     padding: 20px;
-    background-image: url('../assets/textures/wood-table.png');
+    background-image: url('../assets/textures/wood-table-extended.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 10%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .perfil-card {
@@ -82,17 +86,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: self-end;
+    margin-right: 10%;
     width: 35%;
     height: auto;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     aspect-ratio: 581 / 671;
     transform: rotateZ(-25deg);
     -webkit-transform: rotateZ(-25deg);
     -moz-transform: rotateZ(-25deg);
     -ms-transform: rotateZ(-25deg);
     -o-transform: rotateZ(-25deg);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .perfil-card::after {
@@ -108,7 +114,7 @@
     background-repeat: no-repeat;
     background-position: center;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 
