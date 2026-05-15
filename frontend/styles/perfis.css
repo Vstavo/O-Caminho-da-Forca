@@ -73,12 +73,17 @@
     width: 100%;
     height: 100%;
     gap: 20px;
+    border-radius: 5px;
     padding: 20px;
     background-image: url('../assets/textures/wood-table-extended.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 10%;
+    background-position: 5%;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .perfil-card {
@@ -88,16 +93,16 @@
     align-items: center;
     align-self: self-end;
     margin-right: 10%;
-    width: 35%;
+    width: 40%;
     height: auto;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     aspect-ratio: 581 / 671;
-    transform: rotateZ(-25deg);
-    -webkit-transform: rotateZ(-25deg);
-    -moz-transform: rotateZ(-25deg);
-    -ms-transform: rotateZ(-25deg);
-    -o-transform: rotateZ(-25deg);
+    transform: rotateZ(-15deg);
+    -webkit-transform: rotateZ(-15deg);
+    -moz-transform: rotateZ(-15deg);
+    -ms-transform: rotateZ(-15deg);
+    -o-transform: rotateZ(-15deg);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
@@ -114,7 +119,6 @@
     background-repeat: no-repeat;
     background-position: center;
     pointer-events: none;
-    z-index: 2;
 }
 
 
